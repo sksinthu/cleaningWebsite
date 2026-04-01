@@ -5,6 +5,7 @@ import Achievements from './components/Achievements';
 import Services from './components/Services';
 import Pricing from './components/Pricing';
 import BeforeAfter from './components/BeforeAfter';
+import Testimonials from './components/Testimonials';
 import WinterService from './components/WinterService';
 import ServiceArea from './components/ServiceArea';
 import Contact from './components/Contact';
@@ -24,6 +25,7 @@ function App() {
           <Achievements />
           <Pricing />
           <BeforeAfter />
+          <Testimonials />
           <WinterService />
           <ServiceArea />
           <Contact />

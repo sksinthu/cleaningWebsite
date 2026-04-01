@@ -43,7 +43,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50 glass-nav shadow-lg border border-slate-200/50 rounded-2xl flex justify-around items-center px-2 py-3 pb-safe">
+    <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50 bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-slate-200 rounded-2xl flex justify-around items-center px-2 py-3 pb-safe">
       {navItems.map((item) => {
         const isActive = activeSegment === item.id;
         return (

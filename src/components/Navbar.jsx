@@ -4,6 +4,7 @@ import { useLanguage } from '../LanguageContext';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSegment, setActiveSegment] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
   // Scrollspy logic to determine active menu item
@@ -27,6 +28,7 @@ const Navbar = () => {
       }
       
       setActiveSegment(current);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,7 +38,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-nav shadow-sm">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200' : 'bg-transparent'}`}>
       <div className="flex justify-between items-center px-4 md:px-8 py-3 md:py-4 max-w-7xl mx-auto">
         <a href="#" className="flex items-center">
           <img src="/Logo.jpg" alt="SwissClean" className="h-8 md:h-12 w-auto object-contain rounded-sm" />

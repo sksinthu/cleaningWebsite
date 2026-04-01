@@ -65,17 +65,28 @@ const Services = () => {
         </div>
 
         {/* Additional Services Section */}
-        <div className="bg-surface-container-high/50 p-6 md:p-8 rounded-3xl">
-          <h4 className="font-headline text-xl font-bold text-primary mb-6 md:mb-8">{t('Zusatzleistungen & Räumungen', 'Additional Services & Clearances')}</h4>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
-            {additionalServices.map((service, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-surface-container-lowest flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-primary">{service.icon}</span>
+        <div className="bg-surface-container-high/50 p-6 md:p-8 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="flex-1 w-full relative z-10">
+            <h4 className="font-headline text-xl font-bold text-primary mb-6 md:mb-8">{t('Zusatzleistungen & Räumungen', 'Additional Services & Clearances')}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {additionalServices.map((service, idx) => (
+                <div key={idx} className="flex flex-col items-center text-center group">
+                  <div className="w-16 h-16 rounded-2xl bg-surface-container-lowest flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-primary">{service.icon}</span>
+                  </div>
+                  <span className="text-sm font-semibold">{service.title}</span>
                 </div>
-                <span className="text-sm font-semibold">{service.title}</span>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          
+          <div className="hidden md:block w-64 h-64 relative animate-float">
+            <div className="absolute inset-0 bg-secondary/20 rounded-full blur-3xl scale-150"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600" 
+              alt="Professional Cleaning Supplies" 
+              className="w-full h-full object-cover rounded-full shadow-2xl border-[6px] border-white rotate-3 relative z-10"
+            />
           </div>
         </div>
       </div>

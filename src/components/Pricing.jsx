@@ -42,12 +42,16 @@ const Pricing = () => {
       <div className="text-center mb-10 md:mb-16">
         <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-4">{t('Transparente Preise', 'Transparent Pricing')}</h2>
         <p className="text-on-surface-variant max-w-2xl mx-auto">{t('Wohnungsreinigungen mit Abgabegarantie zum fairen Pauschalpreis.', 'Apartment cleaning with handover guarantee at a fair flat rate.')}</p>
+        <div className="md:hidden mt-4 text-xs font-bold text-secondary uppercase animate-pulse flex items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-sm">swipe_left</span>
+            Wischen für mehr
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-6 pb-8 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible relative -mx-4 md:mx-0 px-4 md:px-0">
         {prices.map((plan, idx) => {
           return (
-            <div key={idx} className="group bg-surface-container-lowest hover:bg-primary p-8 rounded-3xl border border-outline-variant/10 hover:border-primary hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+            <div key={idx} className="snap-center min-w-[85vw] md:min-w-0 group bg-surface-container-lowest hover:bg-primary p-8 rounded-3xl border border-outline-variant/10 hover:border-primary hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
               {/* Hover highlight background flare */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500 z-0"></div>
               

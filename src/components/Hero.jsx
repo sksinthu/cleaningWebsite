@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [currentImg, setCurrentImg] = useState(0);
+
+  const images = [
+    "/herosection-images/unnamed.png",
+    "/herosection-images/anton-y-bjqTUUw2Q-unsplash.jpg",
+    "/herosection-images/giorgio-trovato-5TXz228u4eo-unsplash.jpg",
+    "/herosection-images/puroclean-of-fort-worth--dc38HdQR1M-unsplash.jpg",
+    "/herosection-images/toon-lambrechts-0FTI9ceTUOc-unsplash.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % images.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative overflow-hidden px-4 md:px-8 pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-8 lg:pb-28 max-w-7xl mx-auto">
@@ -23,13 +39,27 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className="relative z-0">
+        <div className="relative z-0 animate-float w-full aspect-square rounded-3xl shadow-2xl overflow-hidden bg-surface-variant">
           <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl -z-10"></div>
-          <img 
-            alt={t('Professionelle Reinigungskraft', 'Professional Cleaner')}
-            className="rounded-3xl object-cover aspect-square shadow-2xl w-full h-full" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHYW17EP5kM8o3wrgoa3H8FAi8qVP3IK6jae9ckiRq7DN7EMiFh1U2UQwUQ43rbl4y6a1HlpjVPHbggYNm-Vg3TJ8qBA1ZXJHCc82z-QHvUB-_jqcw6nC6j8MiaHO-LBZTpR-QuMeqNfvbaDlC5pnQnhZXbb0x-dBqrW3KS0A1ZctwJL_ltjcMDfd8XeUoVfvIZh9Lzy4fSG7iZbHPttjJQF2KcWimQ6O-hVFpez-kfZMbKNaL59pOTpVlzkik1Ts0IhtOn3suXjKk"
-          />
+          
+          {images.map((src, index) => (
+             <img 
+               key={index}
+               alt={t('Professionelle Reinigungskraft', 'Professional Cleaner')}
+               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
+               src={src}
+             />
+          ))}
+          
+          <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+             {images.map((_, index) => (
+               <div 
+                 key={index} 
+                 onClick={() => setCurrentImg(index)}
+                 className={`h-1.5 rounded-full cursor-pointer transition-all duration-500 shadow-sm ${index === currentImg ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
+               />
+             ))}
+          </div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Achievements from './components/Achievements';
 import Services from './components/Services';
+import WhyChooseUs from './components/WhyChooseUs';
 import Pricing from './components/Pricing';
 import BeforeAfter from './components/BeforeAfter';
 import Testimonials from './components/Testimonials';
@@ -22,6 +23,7 @@ function App() {
         <main className="pt-24">
           <Hero />
           <Services />
+          <WhyChooseUs />
           <Achievements />
           <Pricing />
           <BeforeAfter />

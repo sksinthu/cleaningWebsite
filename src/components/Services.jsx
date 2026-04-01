@@ -83,8 +83,8 @@ const Services = () => {
           <div className="hidden md:block w-64 h-64 relative animate-float">
             <div className="absolute inset-0 bg-secondary/20 rounded-full blur-3xl scale-150"></div>
             <img 
-              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600" 
-              alt="Professional Cleaning Supplies" 
+              src="/cleaning-services-1.jpg" 
+              alt="Professional Cleaning Services" 
               className="w-full h-full object-cover rounded-full shadow-2xl border-[6px] border-white rotate-3 relative z-10"
             />
           </div>

@@ -27,8 +27,8 @@ const Hero = () => {
           <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl -z-10"></div>
           <img 
             alt={t('Professionelle Reinigungskraft', 'Professional Cleaner')}
-            className="rounded-3xl object-cover aspect-[4/5] shadow-2xl w-full h-full" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZz_UoGfbds1gCb_v6O1Vb5D8SXrGhFGB8Bjk_cdLRwK7od0zeoTvtCWeRT6MUNBkXtI411MqzqEHT8Q0Clf9PdPxGL8iFv8QlDWSbQebwTo_UxybuB77pSC77A11wDNQqQTmPsKL3c0N66re7PTKrPPqPv5t4cXPd2e4E3EnboU2ZOvhKYuIqPNdUT85p89PoSMShuCajtPxRmfiHG5keVl7ooub7Sfk6P3Ty2-e5KAKBzKnL34Cz_8X-IMFCF0Qa3jjW3fmHS1Ux"
+            className="rounded-3xl object-cover aspect-square shadow-2xl w-full h-full" 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHYW17EP5kM8o3wrgoa3H8FAi8qVP3IK6jae9ckiRq7DN7EMiFh1U2UQwUQ43rbl4y6a1HlpjVPHbggYNm-Vg3TJ8qBA1ZXJHCc82z-QHvUB-_jqcw6nC6j8MiaHO-LBZTpR-QuMeqNfvbaDlC5pnQnhZXbb0x-dBqrW3KS0A1ZctwJL_ltjcMDfd8XeUoVfvIZh9Lzy4fSG7iZbHPttjJQF2KcWimQ6O-hVFpez-kfZMbKNaL59pOTpVlzkik1Ts0IhtOn3suXjKk"
           />
         </div>
       </div>

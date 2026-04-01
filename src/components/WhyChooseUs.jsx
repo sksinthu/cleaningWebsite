@@ -9,25 +9,25 @@ const WhyChooseUs = () => {
       icon: 'verified',
       title: t('Abnahmegarantie', '100% Satisfaction Guarantee'),
       desc: t('Stressfreie Wohnungsübergabe dank unserer garantierten Reinigungsstandards.', 'Stress-free apartment handover thanks to our guaranteed cleaning standards.'),
-      img: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800'
+      img: '/Whychoose-us/photo-1527515637462-cff94eecc1ac.avif'
     },
     {
       icon: 'eco',
       title: t('Umweltfreundlich', 'Eco-Friendly Products'),
       desc: t('Wir verwenden nachhaltige, biologisch abbaubare Produkte für Ihre Gesundheit.', 'We use sustainable, biodegradable products for your health.'),
-      img: 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=800'
+      img: '/Whychoose-us/photo-1610557892470-55d9e80c0bce.avif'
     },
     {
       icon: 'security',
       title: t('Versichert & Geprüft', 'Fully Insured & Vetted'),
       desc: t('Unser Personal ist fest angestellt, geschult und selbstverständlich voll versichert.', 'Our staff is permanently employed, trained, and fully insured.'),
-      img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800'
+      img: '/Whychoose-us/photo-1584622650111-993a426fbf0a.avif'
     },
     {
       icon: 'price_check',
       title: t('Transparente Preise', 'Transparent Pricing'),
       desc: t('Keine versteckten Kosten. Sie zahlen nur das, was wir vorher schriftlich vereinbart haben.', 'No hidden costs. You only pay what we agreed upon in writing beforehand.'),
-      img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800'
+      img: '/Whychoose-us/photo-1554224155-8d04cb21cd6c.avif'
     }
   ];
 

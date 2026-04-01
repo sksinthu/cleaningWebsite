@@ -1,55 +1,71 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const BottomNav = () => {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeSegment, setActiveSegment] = useState('');
+  const { t } = useLanguage();
 
+  // Scrollspy logic for mobile bottom navigation focus
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveTab(entry.target.id);
+    const handleScroll = () => {
+      const sections = ['services', 'preise', 'winterdienst', 'einsatzgebiet', 'kontakt'];
+      let current = '';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the element crosses the middle of the viewport
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            current = section;
           }
-        });
-      },
-      { rootMargin: '-50% 0px -50% 0px' }
-    );
+        }
+      }
+      
+      if (window.scrollY < 100) {
+          current = '';
+      }
+      
+      setActiveSegment(current);
+    };
 
-    const sections = ['home', 'services', 'pricing']; // Ensure 'book' ties to 'pricing'
-    sections.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getTabClass = (tabName) => {
-    return `flex flex-col items-center justify-center px-4 py-1 active:scale-90 transition-transform cursor-pointer ${
-      activeTab === tabName || (activeTab === '' && tabName === 'home')
-        ? 'bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-2xl'
-        : 'text-slate-500 dark:text-slate-400 hover:text-emerald-600'
-    }`;
-  };
+  // Removed Service Area icon due to mobile width limitations (max 4 icons usually fits best comfortably)
+  const navItems = [
+    { id: 'services', icon: 'home_work', label: t('Services', 'Services') },
+    { id: 'preise', icon: 'payments', label: t('Preise', 'Pricing') },
+    { id: 'winterdienst', icon: 'ac_unit', label: t('Winter', 'Winter') },
+    { id: 'kontakt', icon: 'mail', label: t('Kontakt', 'Contact') }
+  ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_-10px_30px_rgba(0,88,191,0.04)] z-50 rounded-t-3xl">
-      <div onClick={() => window.scrollTo(0,0)} className={getTabClass('home')}>
-        <span className="material-symbols-outlined">home</span>
-        <span className="font-plus-jakarta text-[10px] font-medium">Home</span>
-      </div>
-      <a href="#services" className={getTabClass('services')}>
-        <span className="material-symbols-outlined">cleaning_services</span>
-        <span className="font-plus-jakarta text-[10px] font-medium">Services</span>
-      </a>
-      <a href="#pricing" className={getTabClass('pricing')}>
-        <span className="material-symbols-outlined">calendar_today</span>
-        <span className="font-plus-jakarta text-[10px] font-medium">Book</span>
-      </a>
-      <div className={getTabClass('account')}>
-        <span className="material-symbols-outlined">person</span>
-        <span className="font-plus-jakarta text-[10px] font-medium">Account</span>
-      </div>
+    <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50 glass-nav shadow-lg border border-slate-200/50 rounded-2xl flex justify-around items-center px-2 py-3 pb-safe">
+      {navItems.map((item) => {
+        const isActive = activeSegment === item.id;
+        return (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`flex flex-col items-center justify-center w-16 gap-1 transition-all ${
+              isActive ? 'text-blue-600 scale-110 translate-y-[-4px]' : 'text-slate-500 hover:text-blue-600'
+            }`}
+          >
+            <span 
+              className="material-symbols-outlined text-2xl" 
+              style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}
+            >
+              {item.icon}
+            </span>
+            <span className={`text-[10px] font-bold ${isActive ? 'opacity-100' : 'opacity-70'}`}>
+              {item.label}
+            </span>
+          </a>
+        );
+      })}
     </nav>
   );
 };

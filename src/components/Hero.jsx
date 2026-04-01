@@ -1,58 +1,38 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Hero = () => {
-  return (
-    <>
-      {/* Mobile Hero View */}
-      <section id="home" className="md:hidden px-6 pt-12 pb-16 flex flex-col items-center text-center">
-        <h1 className="text-4xl font-extrabold font-headline tracking-tight text-primary mb-6 leading-[1.1]">
-          Professional Cleaning Services You Can Trust
-        </h1>
-        <p className="text-on-surface-variant text-lg font-body mb-10 max-w-sm">
-          Experience the serenity of a perfectly maintained home with our eco-friendly touch.
-        </p>
-        <div className="flex flex-col items-center gap-8 w-full">
-          <button className="bg-secondary text-white font-bold py-4 px-10 rounded-full shadow-lg active:scale-95 transition-all text-lg w-full max-w-xs">
-            Book Now
-          </button>
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl">
-            <img 
-              alt="Professional cleaner in uniform" 
-              className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHYW17EP5kM8o3wrgoa3H8FAi8qVP3IK6jae9ckiRq7DN7EMiFh1U2UQwUQ43rbl4y6a1HlpjVPHbggYNm-Vg3TJ8qBA1ZXJHCc82z-QHvUB-_jqcw6nC6j8MiaHO-LBZTpR-QuMeqNfvbaDlC5pnQnhZXbb0x-dBqrW3KS0A1ZctwJL_ltjcMDfd8XeUoVfvIZh9Lzy4fSG7iZbHPttjJQF2KcWimQ6O-hVFpez-kfZMbKNaL59pOTpVlzkik1Ts0IhtOn3suXjKk"
-            />
-          </div>
-        </div>
-      </section>
+  const { t } = useLanguage();
 
-      {/* Desktop Hero View */}
-      <section className="hidden md:block pt-32 pb-20 px-8 bg-surface overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="flex-1 space-y-8">
-            <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight">
-              Professional Cleaning Services <span className="text-primary">You Can Trust</span>
-            </h1>
-            <p className="text-lg text-on-surface-variant max-w-xl leading-relaxed">
-              Experience the ultimate tranquility of a perfectly maintained space. Our eco-friendly approach combines precision cleaning with professional reliability.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="px-8 py-4 bg-secondary text-on-secondary rounded-full font-bold text-lg hover:shadow-lg transition-all active:scale-95">Book Now</button>
-              <button className="px-8 py-4 bg-surface-container-lowest text-primary border border-outline-variant/20 rounded-full font-bold text-lg air-shadow active:scale-95">Get a Quote</button>
-            </div>
-          </div>
-          <div className="flex-1 relative">
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary-fixed opacity-20 blur-3xl rounded-full"></div>
-            <div className="relative z-10 rounded-3xl overflow-hidden air-shadow aspect-square md:aspect-auto md:h-[600px] w-full bg-surface-container-high">
-              <img 
-                alt="Professional cleaner in a bright modern apartment" 
-                className="w-full h-full object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHYW17EP5kM8o3wrgoa3H8FAi8qVP3IK6jae9ckiRq7DN7EMiFh1U2UQwUQ43rbl4y6a1HlpjVPHbggYNm-Vg3TJ8qBA1ZXJHCc82z-QHvUB-_jqcw6nC6j8MiaHO-LBZTpR-QuMeqNfvbaDlC5pnQnhZXbb0x-dBqrW3KS0A1ZctwJL_ltjcMDfd8XeUoVfvIZh9Lzy4fSG7iZbHPttjJQF2KcWimQ6O-hVFpez-kfZMbKNaL59pOTpVlzkik1Ts0IhtOn3suXjKk"
-              />
-            </div>
+  return (
+    <section className="relative overflow-hidden px-4 md:px-8 pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-8 lg:pb-28 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div>
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-primary leading-tight mb-4 md:mb-6">
+            {t('Professionelle Reinigungsdienste in Ihrer Region', 'Professional Cleaning Services in Your Area')}
+          </h1>
+          <p className="text-base md:text-lg lg:text-xl text-on-surface-variant mb-8 md:mb-10 max-w-xl leading-relaxed">
+            {t('Vertrauen, Zuverlässigkeit und erstklassiger Service. Wir sorgen für strahlende Sauberkeit in Ihrem Zuhause oder Büro – schnell und umweltfreundlich.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="#kontakt" className="w-full sm:w-auto bg-secondary text-on-secondary px-6 md:px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-on-secondary-container transition-all editorial-shadow flex items-center justify-center">
+              {t('Jetzt buchen', 'Book Now')}
+            </a>
+            <a href="#kontakt" className="w-full sm:w-auto bg-surface-container-lowest text-primary px-6 md:px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-surface-container-low transition-all flex items-center justify-center">
+              {t('Angebot erhalten', 'Get a Quote')}
+            </a>
           </div>
         </div>
-      </section>
-    </>
+        <div className="relative z-0">
+          <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl -z-10"></div>
+          <img 
+            alt={t('Professionelle Reinigungskraft', 'Professional Cleaner')}
+            className="rounded-3xl object-cover aspect-[4/5] shadow-2xl w-full h-full" 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZz_UoGfbds1gCb_v6O1Vb5D8SXrGhFGB8Bjk_cdLRwK7od0zeoTvtCWeRT6MUNBkXtI411MqzqEHT8Q0Clf9PdPxGL8iFv8QlDWSbQebwTo_UxybuB77pSC77A11wDNQqQTmPsKL3c0N66re7PTKrPPqPv5t4cXPd2e4E3EnboU2ZOvhKYuIqPNdUT85p89PoSMShuCajtPxRmfiHG5keVl7ooub7Sfk6P3Ty2-e5KAKBzKnL34Cz_8X-IMFCF0Qa3jjW3fmHS1Ux"
+          />
+        </div>
+      </div>
+    </section>
   );
 };
 

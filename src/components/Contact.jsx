@@ -1,69 +1,77 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
-    <section className="px-6 py-16 md:py-24 bg-primary text-white md:rounded-[3rem] rounded-t-[3rem] max-w-7xl mx-auto md:mb-12">
-      <div className="flex flex-col md:flex-row gap-12 md:gap-24 md:px-12">
-        
-        {/* Left Side: Info */}
-        <div className="flex-1">
-          <h3 className="text-3xl md:text-6xl font-extrabold font-headline mb-4 md:mb-8 leading-tight">Get In Touch</h3>
-          <p className="text-blue-100 mb-8 md:mb-16 md:text-xl font-light">Ready for a pristine home? Send us a message and we'll get back to you within 24 hours.</p>
-          
-          <div className="space-y-6 md:space-y-8 text-sm md:text-base text-blue-50">
-            <div className="flex items-center gap-4 group cursor-pointer">
-              <div className="w-12 h-12 bg-white/10 rounded-full flex justify-center items-center group-hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined">call</span>
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low" id="kontakt">
+      <div className="max-w-5xl mx-auto bg-surface-container-lowest rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+
+        {/* Contact Info Side */}
+        <div className="p-8 md:p-12 md:w-2/5 bg-primary text-white">
+          <h2 className="font-headline text-2xl md:text-3xl font-bold mb-6 md:mb-8">{t('Kontaktieren Sie uns', 'Contact Us')}</h2>
+          <p className="text-white/80 mb-8 md:mb-12">{t('Haben Sie Fragen oder möchten Sie direkt buchen? Unser Team steht Ihnen gerne zur Verfügung.', 'Do you have questions or would you like to book directly? Our team is happy to assist you.')}</p>
+
+          <div className="space-y-6 md:space-y-8">
+            <div className="flex gap-4">
+              <span className="material-symbols-outlined text-secondary-container">phone</span>
+              <div>
+                <div className="text-sm text-white/60">{t('Telefon', 'Phone')}</div>
+                <div className="font-bold text-lg">+41 00 000 00 00</div>
               </div>
-              <span className="font-medium tracking-wide">(555) 000-Pristine</span>
             </div>
-            <div className="flex items-center gap-4 group cursor-pointer">
-              <div className="w-12 h-12 bg-white/10 rounded-full flex justify-center items-center group-hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined">mail</span>
+            <div className="flex gap-4">
+              <span className="material-symbols-outlined text-secondary-container">schedule</span>
+              <div>
+                <div className="text-sm text-white/60">{t('Verfügbarkeit', 'Availability')}</div>
+                <div className="font-bold">{t('Mo - Fr: 08:00 - 18:00', 'Mon - Fri: 08:00 - 18:00')}</div>
               </div>
-              <span className="font-medium tracking-wide">hello@pristinesanctuary.com</span>
             </div>
-            <div className="flex items-center gap-4 group cursor-pointer">
-              <div className="w-12 h-12 bg-white/10 rounded-full flex justify-center items-center group-hover:bg-white/20 transition-colors">
-                <span className="material-symbols-outlined">location_on</span>
+            <div className="flex gap-4">
+              <span className="material-symbols-outlined text-secondary-container">mail</span>
+              <div>
+                <div className="text-sm text-white/60">{t('E-Mail', 'Email')}</div>
+                <div className="font-bold">pktopclean99@gmail.com</div>
               </div>
-              <span className="font-medium tracking-wide">123 Cleanliness Blvd, Eco City</span>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Form */}
-        <div className="flex-1 bg-white/10 p-8 md:p-10 rounded-[2rem] border border-white/20 backdrop-blur-sm">
-          <form className="space-y-5">
-            <div>
-              <label className="block text-xs md:text-sm font-bold uppercase mb-2 ml-1 tracking-wider text-blue-100">Full Name</label>
-              <input 
-                className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white placeholder:text-white/40 focus:ring-secondary focus:border-secondary focus:bg-white/10 transition-all outline-none" 
-                placeholder="Enter your name" 
-                type="text"
-              />
+        {/* Contact Form Side */}
+        <div className="p-8 md:p-12 md:w-3/5">
+          <form className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">{t('Name', 'Name')}</label>
+                <input
+                  className="w-full bg-surface px-4 py-3 rounded-xl border-none ring-1 ring-outline-variant/20 focus:ring-2 focus:ring-primary transition-all outline-none"
+                  placeholder={t('Ihr Vorname', 'Your First Name')}
+                  type="text"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">{t('Email', 'Email')}</label>
+                <input
+                  className="w-full bg-surface px-4 py-3 rounded-xl border-none ring-1 ring-outline-variant/20 focus:ring-2 focus:ring-primary transition-all outline-none"
+                  placeholder={t('ihre@mail.ch', 'your@mail.ch')}
+                  type="email"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-xs md:text-sm font-bold uppercase mb-2 ml-1 tracking-wider text-blue-100">Email Address</label>
-              <input 
-                className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white placeholder:text-white/40 focus:ring-secondary focus:border-secondary focus:bg-white/10 transition-all outline-none" 
-                placeholder="you@example.com" 
-                type="email"
-              />
-            </div>
-            <div>
-              <label className="block text-xs md:text-sm font-bold uppercase mb-2 ml-1 tracking-wider text-blue-100">Your Message</label>
-              <textarea 
-                className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white placeholder:text-white/40 focus:ring-secondary focus:border-secondary focus:bg-white/10 transition-all outline-none" 
-                placeholder="How can we help?" 
+            <div className="space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">{t('Nachricht', 'Message')}</label>
+              <textarea
+                className="w-full bg-surface px-4 py-3 rounded-xl border-none ring-1 ring-outline-variant/20 focus:ring-2 focus:ring-primary transition-all outline-none"
+                placeholder={t('Wie können wir Ihnen helfen?', 'How can we help you?')}
                 rows="4"
               ></textarea>
             </div>
-            <button 
-              className="w-full bg-secondary text-white font-bold py-4 rounded-2xl shadow-xl hover:bg-emerald-600 active:scale-95 transition-all mt-4" 
-              type="button"
+            <button
+              className="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold text-lg hover:bg-on-secondary-container transition-all editorial-shadow"
+              type="submit"
             >
-              Send Message
+              {t('Absenden', 'Submit')}
             </button>
           </form>
         </div>

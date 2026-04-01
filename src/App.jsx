@@ -2,28 +2,31 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import Features from './components/Features';
 import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
+import WinterService from './components/WinterService';
+import ServiceArea from './components/ServiceArea';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BottomNav from './components/BottomNav';
+import { LanguageProvider } from './LanguageContext';
 
 function App() {
   return (
-    <div className="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
-      <Navbar />
-      <main className="pt-16 max-w-7xl mx-auto">
-        <Hero />
-        <Services />
-        <Features />
-        <Pricing />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-      <BottomNav />
-    </div>
+    <LanguageProvider>
+      <div className="bg-surface font-body text-on-surface antialiased pb-20 md:pb-0">
+        <Navbar />
+        <main className="pt-24">
+          <Hero />
+          <Services />
+          <Pricing />
+          <WinterService />
+          <ServiceArea />
+          <Contact />
+        </main>
+        <Footer />
+        <BottomNav />
+      </div>
+    </LanguageProvider>
   );
 }
 

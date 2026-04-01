@@ -1,97 +1,117 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSegment, setActiveSegment] = useState('');
+  const { language, setLanguage, t } = useLanguage();
 
+  // Scrollspy logic to determine active menu item
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+    const handleScroll = () => {
+      const sections = ['services', 'preise', 'winterdienst', 'einsatzgebiet', 'kontakt'];
+      let current = '';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            current = section;
           }
-        });
-      },
-      { rootMargin: '-50% 0px -50% 0px' }
-    );
+        }
+      }
+      
+      if (window.scrollY < 100) {
+          current = '';
+      }
+      
+      setActiveSegment(current);
+    };
 
-    const sections = ['services', 'why-us', 'reviews', 'pricing'];
-    sections.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getLinkClass = (section) => {
-    return `transition-colors pb-1 ${
-      activeSection === section 
-        ? 'text-primary border-b-2 border-primary' 
-        : 'text-slate-600 hover:text-primary border-b-2 border-transparent'
-    }`;
-  };
-
-  const getMobileLinkClass = (section) => {
-    return `block py-4 text-xl font-bold border-b border-surface-dim ${
-      activeSection === section ? 'text-primary' : 'text-on-surface'
-    }`;
-  };
-
-  const closeMenu = () => setIsMenuOpen(false);
-
   return (
-    <>
-      {/* Desktop Navbar */}
-      <nav className="hidden md:block fixed top-0 w-full z-50 glass-nav shadow-sm bg-white/80 backdrop-blur-md">
-        <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-          <div className="text-2xl font-extrabold font-headline text-primary">Pristine Sanctuary</div>
-          <div className="flex items-center space-x-8 font-headline tracking-tight font-bold text-sm">
-            <a className={getLinkClass('services')} href="#services">Services</a>
-            <a className={getLinkClass('why-us')} href="#why-us">Why Us</a>
-            <a className={getLinkClass('reviews')} href="#reviews">Reviews</a>
-            <a className={getLinkClass('pricing')} href="#pricing">Pricing</a>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="px-5 py-2.5 rounded-full text-primary font-bold text-sm bg-surface-container-lowest transition-all active:scale-95 border border-primary/20">Get a Quote</button>
-            <button className="px-5 py-2.5 rounded-full bg-secondary text-on-secondary font-bold text-sm hover:bg-on-secondary-container transition-all active:scale-95">Book Now</button>
-          </div>
-        </div>
-      </nav>
+    <header className="fixed top-0 w-full z-50 glass-nav shadow-sm">
+      <div className="flex justify-between items-center px-4 md:px-8 py-3 md:py-4 max-w-7xl mx-auto">
+        <a href="#" className="flex items-center">
+          <img src="/Logo.jpg" alt="SwissClean" className="h-8 md:h-12 w-auto object-contain rounded-sm" />
+        </a>
+        
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
+          <a className={`transition-all ${activeSegment === 'services' ? 'text-blue-600 font-bold scale-105' : 'text-slate-600 hover:text-blue-600'}`} href="#services">{t('Services', 'Services')}</a>
+          <a className={`transition-all ${activeSegment === 'preise' ? 'text-blue-600 font-bold scale-105' : 'text-slate-600 hover:text-blue-600'}`} href="#preise">{t('Preise', 'Pricing')}</a>
+          <a className={`transition-all ${activeSegment === 'winterdienst' ? 'text-blue-600 font-bold scale-105' : 'text-slate-600 hover:text-blue-600'}`} href="#winterdienst">{t('Winterdienst', 'Winter Service')}</a>
+          <a className={`transition-all ${activeSegment === 'einsatzgebiet' ? 'text-blue-600 font-bold scale-105' : 'text-slate-600 hover:text-blue-600'}`} href="#einsatzgebiet">{t('Einsatzgebiet', 'Service Area')}</a>
+          <a className={`transition-all ${activeSegment === 'kontakt' ? 'text-blue-600 font-bold scale-105' : 'text-slate-600 hover:text-blue-600'}`} href="#kontakt">{t('Kontakt', 'Contact')}</a>
+        </nav>
 
-      {/* Mobile Navbar */}
-      <nav className="md:hidden fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,88,191,0.06)] flex justify-between items-center px-6 h-16">
-        <div className="text-2xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tighter font-manrope">
-          Pristine
-        </div>
+        {/* Action Elements */}
         <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center bg-slate-100 p-1 rounded-full border border-slate-200/50">
+            <button 
+              onClick={() => setLanguage('DE')}
+              className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-wider transition-all focus:outline-none ${language === 'DE' ? 'font-extrabold bg-white text-primary shadow-sm' : 'font-bold text-slate-500 hover:text-primary'}`}
+            >
+                DE
+            </button>
+            <button 
+              onClick={() => setLanguage('EN')}
+              className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-wider transition-all focus:outline-none ${language === 'EN' ? 'font-extrabold bg-white text-primary shadow-sm' : 'font-bold text-slate-500 hover:text-primary'}`}
+            >
+                EN
+            </button>
+          </div>
+          <a className="hidden md:inline-block bg-secondary text-on-secondary px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-on-secondary-container transition-all active:scale-95" href="#kontakt">
+            {t('Jetzt buchen', 'Book Now')}
+          </a>
+          
+          {/* Mobile Menu Toggle */}
           <button 
-            className="material-symbols-outlined active:scale-95 duration-200" 
-            style={{ color: '#2A7FFF' }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden material-symbols-outlined text-primary text-4xl focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMenuOpen ? 'close' : 'menu_open'}
+            {isMobileMenuOpen ? 'close' : 'menu_open'}
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-surface pt-20 px-6 pb-24 h-screen overflow-y-auto">
-          <div className="flex flex-col space-y-2">
-            <a className={getMobileLinkClass('services')} href="#services" onClick={closeMenu}>Services</a>
-            <a className={getMobileLinkClass('why-us')} href="#why-us" onClick={closeMenu}>Why Us</a>
-            <a className={getMobileLinkClass('reviews')} href="#reviews" onClick={closeMenu}>Reviews</a>
-            <a className={getMobileLinkClass('pricing')} href="#pricing" onClick={closeMenu}>Pricing</a>
-          </div>
-          <div className="mt-8 flex flex-col space-y-4">
-            <button className="w-full py-4 rounded-full text-primary font-bold bg-white shadow-sm border border-primary/10 active:scale-95 transition-all">Get a Quote</button>
-            <button className="w-full py-4 rounded-full bg-secondary text-white font-bold shadow-lg active:scale-95 transition-all">Book Now</button>
+      {/* Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 flex flex-col p-6 space-y-4">
+          <a className={`text-lg transition-colors ${activeSegment === 'services' ? 'text-blue-600 font-bold' : 'text-slate-800 font-medium'}`} href="#services" onClick={() => setIsMobileMenuOpen(false)}>{t('Services', 'Services')}</a>
+          <a className={`text-lg transition-colors ${activeSegment === 'preise' ? 'text-blue-600 font-bold' : 'text-slate-800 font-medium'}`} href="#preise" onClick={() => setIsMobileMenuOpen(false)}>{t('Preise', 'Pricing')}</a>
+          <a className={`text-lg transition-colors ${activeSegment === 'winterdienst' ? 'text-blue-600 font-bold' : 'text-slate-800 font-medium'}`} href="#winterdienst" onClick={() => setIsMobileMenuOpen(false)}>{t('Winterdienst', 'Winter Service')}</a>
+          <a className={`text-lg transition-colors ${activeSegment === 'einsatzgebiet' ? 'text-blue-600 font-bold' : 'text-slate-800 font-medium'}`} href="#einsatzgebiet" onClick={() => setIsMobileMenuOpen(false)}>{t('Einsatzgebiet', 'Service Area')}</a>
+          <a className={`text-lg transition-colors ${activeSegment === 'kontakt' ? 'text-blue-600 font-bold' : 'text-slate-800 font-medium'}`} href="#kontakt" onClick={() => setIsMobileMenuOpen(false)}>{t('Kontakt', 'Contact')}</a>
+          
+          <div className="pt-6 mt-2 border-t border-slate-100 flex flex-col gap-6">
+            <div className="flex items-center justify-center bg-slate-100 p-1 rounded-full border border-slate-200/50 w-max mx-auto shadow-sm">
+              <button 
+                onClick={() => { setLanguage('DE'); setIsMobileMenuOpen(false); }}
+                className={`px-5 py-2 rounded-full text-xs uppercase tracking-wider transition-all ${language === 'DE' ? 'font-extrabold bg-white text-primary shadow-sm' : 'font-bold text-slate-500 hover:text-primary'}`}
+              >
+                  DE
+              </button>
+              <button 
+                onClick={() => { setLanguage('EN'); setIsMobileMenuOpen(false); }}
+                className={`px-5 py-2 rounded-full text-xs uppercase tracking-wider transition-all ${language === 'EN' ? 'font-extrabold bg-white text-primary shadow-sm' : 'font-bold text-slate-500 hover:text-primary'}`}
+              >
+                  EN
+              </button>
+            </div>
+            <a className="bg-secondary text-on-secondary px-6 py-4 rounded-xl text-center font-bold text-lg shadow-md" href="#kontakt" onClick={() => setIsMobileMenuOpen(false)}>
+              {t('Jetzt buchen', 'Book Now')}
+            </a>
           </div>
         </div>
       )}
-    </>
+    </header>
   );
 };
 

@@ -1,72 +1,76 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Pricing = () => {
-  const plans = [
-    {
-      name: 'Basic',
-      price: '$89',
-      popular: false,
-      features: ['2 Bedrooms', 'Dusting & Vacuuming', 'Kitchen Sanitizing'],
-      buttonStyle: 'border border-primary text-primary active:scale-95 hover:bg-primary/5',
-      buttonText: 'Select Basic',
-      containerStyle: 'bg-surface-container-lowest shadow-sm',
+  const { t } = useLanguage();
+
+  const prices = [
+    { 
+      title: t('1–1.5 Zimmer', '1–1.5 Rooms'), 
+      price: '450 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Professionelle Reinigungsmittel', 'Professional cleaning supplies')]
     },
-    {
-      name: 'Standard',
-      price: '$149',
-      popular: true,
-      features: ['3-4 Bedrooms', 'Interior Windows', 'Bed Linen Change'],
-      buttonStyle: 'bg-secondary text-white shadow-lg active:scale-95 hover:bg-secondary/90',
-      buttonText: 'Choose Standard',
-      containerStyle: 'bg-white shadow-[0_20px_50px_rgba(0,88,191,0.1)] relative border-2 border-primary transform md:-translate-y-4',
-      featureStyle: 'font-semibold',
+    { 
+      title: t('2–2.5 Zimmer', '2–2.5 Rooms'), 
+      price: '550 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Erfahrenes Reinigungsteam', 'Experienced cleaning team')]
     },
-    {
-      name: 'Premium',
-      price: '$249',
-      popular: false,
-      features: ['Deep Scrub All Rooms', 'Oven & Fridge Interior', 'Carpet Steam Cleaning'],
-      buttonStyle: 'border border-primary text-primary active:scale-95 hover:bg-primary/5',
-      buttonText: 'Select Premium',
-      containerStyle: 'bg-surface-container-lowest shadow-sm',
+    { 
+      title: t('3–3.5 Zimmer', '3–3.5 Rooms'), 
+      price: '750 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Komplette Fensterreinigung', 'Complete window cleaning')]
+    },
+    { 
+      title: t('4–4.5 Zimmer', '4–4.5 Rooms'), 
+      price: '950 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Intensive Grundreinigung', 'Intensive deep cleaning')]
+    },
+    { 
+      title: t('5–5.5 Zimmer', '5–5.5 Rooms'), 
+      price: '1050–1250 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Beliebte Option für Häuser', 'Popular choice for houses')]
+    },
+    { 
+      title: t('6–6.5 Zimmer', '6–6.5 Rooms'), 
+      price: '1250–1400 CHF', 
+      features: [t('Inkl. Abgabegarantie', 'Incl. handover guarantee'), t('Individuelle Beratung vor Ort', 'Individual on-site consultation')]
     },
   ];
 
   return (
-    <section id="pricing" className="px-6 py-16 md:py-24 bg-surface-container">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="hidden md:block text-primary font-headline font-bold uppercase tracking-widest text-sm mb-4">Pricing Plans</h2>
-          <h3 className="text-3xl md:text-5xl font-extrabold font-headline mb-4 md:mb-6 text-on-surface">Simple Pricing</h3>
-          <p className="hidden md:block text-on-surface-variant max-w-2xl mx-auto text-lg">Choose a plan that fits your space. No hidden fees, just immaculate results.</p>
-        </div>
+    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto" id="preise">
+      <div className="text-center mb-10 md:mb-16">
+        <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-4">{t('Transparente Preise', 'Transparent Pricing')}</h2>
+        <p className="text-on-surface-variant max-w-2xl mx-auto">{t('Wohnungsreinigungen mit Abgabegarantie zum fairen Pauschalpreis.', 'Apartment cleaning with handover guarantee at a fair flat rate.')}</p>
+      </div>
 
-        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 items-center md:items-stretch">
-          {plans.map((plan, idx) => (
-            <div key={idx} className={`${plan.containerStyle} p-8 md:p-10 rounded-[2.5rem] w-full flex flex-col`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  Most Popular
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {prices.map((plan, idx) => {
+          return (
+            <div key={idx} className="group bg-surface-container-lowest hover:bg-primary p-8 rounded-3xl border border-outline-variant/10 hover:border-primary hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+              {/* Hover highlight background flare */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500 z-0"></div>
+              
+              <div className="relative z-10 w-full">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-white transition-colors duration-300">{plan.title}</h3>
+                <div className="text-3xl font-extrabold text-primary group-hover:text-white mb-4 transition-colors duration-300">{plan.price}</div>
+                
+                <div className="space-y-3 text-sm text-on-surface-variant mb-6">
+                  {plan.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-center gap-2 group-hover:text-white/90 transition-colors duration-300">
+                      <span className="material-symbols-outlined text-secondary group-hover:text-white text-base transition-colors duration-300" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                      <span className="group-hover:text-white/90 transition-colors duration-300">{feature}</span>
+                    </div>
+                  ))}
                 </div>
-              )}
-              <div className="text-on-surface-variant font-bold mb-2 uppercase tracking-wide text-sm">{plan.name}</div>
-              <div className="text-4xl md:text-5xl font-black mb-6 text-primary">
-                {plan.price}<span className="text-base font-normal text-on-surface-variant">/visit</span>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className={`flex items-center gap-3 text-sm md:text-base ${plan.featureStyle || 'text-on-surface'}`}>
-                    <span className="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className={`w-full py-4 md:py-3 rounded-2xl font-bold transition-all ${plan.buttonStyle}`}>
-                {plan.buttonText}
+              
+              <button className="w-full bg-slate-100 group-hover:bg-white text-primary py-3 rounded-full font-bold text-sm hover:bg-slate-200 group-hover:hover:bg-surface-bright transition-colors duration-300 mt-auto relative z-10">
+                {t('Jetzt anfragen', 'Request now')}
               </button>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

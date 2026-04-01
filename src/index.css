@@ -9,9 +9,10 @@
 .glass-nav {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
-.air-shadow {
+.editorial-shadow {
     box-shadow: 0 20px 40px rgba(0, 88, 191, 0.06);
 }
 
@@ -23,5 +24,4 @@ body {
     background-color: theme('colors.surface');
     font-family: theme('fontFamily.body');
     color: theme('colors.on-surface');
-    min-height: max(884px, 100dvh);
 }

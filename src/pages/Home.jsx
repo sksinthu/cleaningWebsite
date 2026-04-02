@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials';
 
 const Home = () => {
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-0">
       <Hero />
       <WhyChooseUs />
       <Achievements />

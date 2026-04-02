@@ -32,29 +32,41 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 bg-surface-container-low relative overflow-hidden" id="warum-wir">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/2"></div>
+    <section className="py-20 md:py-32 px-4 md:px-8 bg-slate-50 relative overflow-hidden" id="warum-wir">
+      {/* Dynamic Color Accents */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 bg-secondary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-widest mb-4 inline-flex items-center gap-1 border border-secondary/20"><span className="material-symbols-outlined text-[14px]">star</span> {t('Warum SwissClean?', 'Why SwissClean?')}</span>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-4">{t('Qualität, der Sie vertrauen können', 'Quality You Can Trust')}</h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto">{t('Wir setzen auf Zuverlässigkeit, Präzision und nachhaltige Sauberkeit in jedem Detail.', 'We focus on reliability, precision, and sustainable cleanliness in every detail.')}</p>
+        <div className="text-center mb-16 md:mb-24">
+          <span className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-xl shadow-primary/20 border border-white/10">
+            <span className="material-symbols-outlined text-[16px]">verified</span>
+            {t('Warum SwissClean?', 'Why SwissClean?')}
+          </span>
+          <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 tracking-tight">
+            {t('Qualität, der Sie vertrauen können', 'Quality You Can Trust')}
+          </h2>
+          <div className="h-2 w-24 bg-secondary mx-auto rounded-full mb-8 shadow-lg"></div>
+          <p className="text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+            {t('Wir setzen auf Zuverlässigkeit, Präzision und nachhaltige Sauberkeit in jedem Detail. Ihr Partner für erstklassige Resultate.', 'We focus on reliability, precision, and sustainable cleanliness in every detail. Your partner for first-class results.')}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {reasons.map((reason, idx) => (
-            <div key={idx} className="bg-surface-container-lowest rounded-3xl shadow-[0_5px_20px_rgba(0,0,0,0.03)] border border-outline-variant/20 flex flex-col overflow-hidden hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-all duration-300 group">
-              <div className="h-48 w-full relative overflow-hidden">
-                <img src={reason.img} alt={reason.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                <div className="absolute bottom-4 left-6 w-12 h-12 bg-white rounded-xl shadow-lg border border-slate-100 flex items-center justify-center translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>{reason.icon}</span>
+            <div key={idx} className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(10,25,47,0.05)] border border-slate-100 flex flex-col overflow-hidden hover:-translate-y-3 hover:shadow-[0_40px_80px_rgba(10,25,47,0.12)] transition-all duration-500 group">
+              <div className="h-56 w-full relative overflow-hidden">
+                <img src={reason.img} alt={reason.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                <div className="absolute bottom-6 left-8 w-14 h-14 bg-white rounded-2xl shadow-2xl flex items-center justify-center translate-y-3 group-hover:translate-y-0 transition-all duration-500 animate-float">
+                  <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>{reason.icon}</span>
                 </div>
               </div>
-              <div className="p-6 md:p-8 flex-1 flex flex-col items-start bg-surface-container-lowest">
-                <h3 className="font-headline text-xl font-bold text-primary mb-3 mt-1">{reason.title}</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed">{reason.desc}</p>
+              <div className="p-8 md:p-10 flex-1 flex flex-col items-start">
+                <h3 className="font-headline text-2xl font-bold text-primary mb-4">{reason.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed font-medium">{reason.desc}</p>
               </div>
             </div>
           ))}

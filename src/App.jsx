@@ -1,41 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Achievements from './components/Achievements';
-import Services from './components/Services';
-import WhyChooseUs from './components/WhyChooseUs';
-import Pricing from './components/Pricing';
-import BeforeAfter from './components/BeforeAfter';
-import Testimonials from './components/Testimonials';
-import WinterService from './components/WinterService';
-import ServiceArea from './components/ServiceArea';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BottomNav from './components/BottomNav';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import { LanguageProvider } from './LanguageContext';
 
+// Pages
+import Home from './pages/Home';
+import ServicesPage from './pages/ServicesPage';
+import PricingPage from './pages/PricingPage';
+import ContactPage from './pages/ContactPage';
+
+// Scroll to top helper
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <LanguageProvider>
-      <div className="bg-surface font-body text-on-surface antialiased pb-20 md:pb-0">
-        <Navbar />
-        <main className="pt-24">
-          <Hero />
-          <Services />
-          <WhyChooseUs />
-          <Achievements />
-          <Pricing />
-          <BeforeAfter />
-          <Testimonials />
-          <WinterService />
-          <ServiceArea />
-          <Contact />
-        </main>
-        <Footer />
-        <BottomNav />
-        <FloatingWhatsApp />
-      </div>
+      <Router>
+        <ScrollToTop />
+        <div className="bg-surface font-body text-on-surface antialiased pb-20 md:pb-0 flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </main>
+          <Footer />
+          <BottomNav />
+          <FloatingWhatsApp />
+        </div>
+      </Router>
     </LanguageProvider>
   );
 }

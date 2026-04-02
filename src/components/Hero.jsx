@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const Hero = () => {
@@ -21,44 +22,71 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-4 md:px-8 pt-6 pb-12 md:pt-10 md:pb-20 lg:pt-8 lg:pb-28 max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div>
-          <h1 className="font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-primary leading-tight mb-4 md:mb-6">
-            {t('Professionelle Reinigungsdienste in Ihrer Region', 'Professional Cleaning Services in Your Area')}
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-16 md:pb-32 lg:pt-20 lg:pb-40 bg-[#0a192f]">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
+        <div className="text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in shadow-xl">
+            <span className="w-2.5 h-2.5 bg-secondary rounded-full animate-ping"></span>
+            <span className="text-white font-black text-[10px] uppercase tracking-[0.2em]">{t('Premium Reinigung Schweiz', 'Premium Cleaning Switzerland')}</span>
+          </div>
+          
+          <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[1.05] mb-8 drop-shadow-2xl">
+            {t('Schweizer Präzision', 'Swiss Precision')} <br />
+            <span className="text-secondary inline-block hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_20px_rgba(250,204,21,0.4)]">
+              {t('in jeder Reinigung', 'in Every Cleaning')}
+            </span>
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-on-surface-variant mb-8 md:mb-10 max-w-xl leading-relaxed">
+          
+          <p className="text-lg md:text-xl text-slate-300 font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
             {t('Vertrauen, Zuverlässigkeit und erstklassiger Service. Wir sorgen für strahlende Sauberkeit in Ihrem Zuhause oder Büro – schnell und umweltfreundlich.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#kontakt" className="w-full sm:w-auto bg-secondary text-on-secondary px-6 md:px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-on-secondary-container transition-all editorial-shadow flex items-center justify-center">
-              {t('Jetzt buchen', 'Book Now')}
-            </a>
-            <a href="#kontakt" className="w-full sm:w-auto bg-surface-container-lowest text-primary px-6 md:px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-surface-container-low transition-all flex items-center justify-center">
+          
+          <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <Link to="/contact" className="group relative px-10 py-5 bg-primary text-white rounded-2xl font-black text-lg hover:scale-110 transition-all shadow-2xl shadow-primary/40 active:scale-95 flex items-center justify-center overflow-hidden">
+               <span className="relative z-10">{t('Jetzt buchen', 'Book Now')}</span>
+               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            </Link>
+            <Link to="/services" className="px-10 py-5 bg-white/10 text-white backdrop-blur-lg border border-white/20 rounded-2xl font-black text-lg hover:bg-white/20 transition-all flex items-center justify-center">
               {t('Angebot erhalten', 'Get a Quote')}
-            </a>
+            </Link>
           </div>
         </div>
-        <div className="relative z-0 animate-float w-full aspect-square rounded-3xl shadow-2xl overflow-hidden bg-surface-variant">
-          <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl -z-10"></div>
+
+        <div className="relative group">
+          <div className="absolute -inset-4 bg-secondary/20 rounded-[40px] blur-[100px] opacity-50 group-hover:opacity-80 transition-opacity duration-700 animate-pulse pointer-events-none"></div>
           
-          {images.map((src, index) => (
-             <img 
-               key={index}
-               alt={t('Professionelle Reinigungskraft', 'Professional Cleaner')}
-               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
-               src={src}
-             />
-          ))}
-          
-          <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
-             {images.map((_, index) => (
-               <div 
-                 key={index} 
-                 onClick={() => setCurrentImg(index)}
-                 className={`h-1.5 rounded-full cursor-pointer transition-all duration-500 shadow-sm ${index === currentImg ? 'w-6 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
+          <div className="relative aspect-square md:aspect-[4/5] lg:aspect-square w-full rounded-[40px] overflow-hidden shadow-2xl border-[12px] border-white/10 backdrop-blur-sm animate-float bg-slate-800">
+            {images.map((src, index) => (
+               <img 
+                 key={index}
+                 alt={t('Professionelle Reinigung', 'Professional Cleaning')}
+                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} 
+                 src={src}
                />
-             ))}
+            ))}
+            
+            {/* Visual Progress Dots */}
+            <div className="absolute bottom-10 left-0 right-0 z-20 flex justify-center gap-3">
+               {images.map((_, index) => (
+                 <div 
+                   key={index} 
+                   onClick={() => setCurrentImg(index)}
+                   className={`h-2 rounded-full cursor-pointer transition-all duration-500 shadow-lg ${index === currentImg ? 'w-10 bg-secondary' : 'w-2 bg-white/40 hover:bg-white/80'}`}
+                 />
+               ))}
+            </div>
+          </div>
+          
+          {/* Experience Badge */}
+          <div className="absolute -top-10 -left-10 bg-white p-6 rounded-[32px] shadow-2xl border border-slate-100 animate-float hidden lg:block">
+            <div className="text-center">
+              <p className="text-4xl font-black text-primary leading-tight">15+</p>
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{t('Jahre Erfahrung', 'Years Experience')}</p>
+            </div>
           </div>
         </div>
       </div>

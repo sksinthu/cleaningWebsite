@@ -8,10 +8,10 @@ const Hero = () => {
 
   const images = [
     "/herosection-images/unnamed.png",
-    "/herosection-images/anton-y-bjqTUUw2Q-unsplash.jpg",
+    "/herosection-images/anton-y-bjqTUUw2Q-unsplash.jpeg",
     "/herosection-images/giorgio-trovato-5TXz228u4eo-unsplash.jpg",
     "/herosection-images/puroclean-of-fort-worth--dc38HdQR1M-unsplash.jpg",
-    "/herosection-images/toon-lambrechts-0FTI9ceTUOc-unsplash.jpg"
+    "/herosection-images/toon-lambrechts-0FTI9ceTUOc-unsplash.jpeg"
   ];
 
   useEffect(() => {

@@ -1,64 +1,67 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const Footer = () => {
   const { t, language, setLanguage } = useLanguage();
 
   return (
-    <footer className="bg-slate-50 py-10 md:py-12 border-t-0">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-8 max-w-7xl mx-auto">
+    <footer className="bg-slate-50 py-12 md:py-16 border-t border-slate-200">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="space-y-6">
-          <img src="/Logo.png" alt="SwissClean" className="h-12 w-auto object-contain rounded-sm" />
-          <p className="text-slate-500 font-plus-jakarta text-sm leading-relaxed">
+          <Link to="/">
+            <img src="/Logo.png" alt="SwissClean" className="h-12 w-auto object-contain" />
+          </Link>
+          <p className="text-slate-500 font-medium text-sm leading-relaxed">
             {t('Ihr Partner für professionelle Sauberkeit und Werterhalt in der gesamten Schweiz.', 'Your partner for professional cleanliness and value retention throughout Switzerland.')}
           </p>
-          <div className="flex gap-4">
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-800 shadow-sm opacity-80 hover:opacity-100 hover:translate-x-1 transition-all cursor-pointer">
-              <span className="material-symbols-outlined">public</span>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary text-xl">location_on</span>
+              <span className="text-sm font-semibold">Kohlenweg 12, 3097 Liebefeld</span>
             </div>
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-800 shadow-sm opacity-80 hover:opacity-100 hover:translate-x-1 transition-all cursor-pointer">
-              <span className="material-symbols-outlined">verified_user</span>
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary text-xl">call</span>
+              <span className="text-sm font-bold">079 781 14 00</span>
             </div>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <h4 className="font-bold text-blue-800">{t('Quick Links', 'Quick Links')}</h4>
-          <nav className="flex flex-col gap-2 font-plus-jakarta text-sm leading-relaxed">
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#services">{t('Services', 'Services')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#preise">{t('Preise', 'Pricing')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#winterdienst">{t('Winterdienst', 'Winter Service')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#kontakt">{t('Jetzt buchen', 'Book Now')}</a>
+        <div className="space-y-6">
+          <h4 className="font-black text-primary uppercase tracking-widest text-sm">{t('Quick Links', 'Quick Links')}</h4>
+          <nav className="flex flex-col gap-3 font-bold text-sm">
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/services">{t('Services', 'Services')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/pricing">{t('Preise', 'Pricing')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/contact">{t('Kontakt', 'Contact')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/contact">{t('Jetzt buchen', 'Book Now')}</Link>
           </nav>
         </div>
 
-        <div className="space-y-4">
-          <h4 className="font-bold text-blue-800">{t('Rechtliches', 'Legal')}</h4>
-          <nav className="flex flex-col gap-2 font-plus-jakarta text-sm leading-relaxed">
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#">{t('Impressum', 'Imprint')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#">{t('Datenschutz', 'Privacy Policy')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#">{t('AGB', 'Terms & Conditions')}</a>
-            <a className="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-all" href="#">{t('Karriere', 'Careers')}</a>
+        <div className="space-y-6">
+          <h4 className="font-black text-primary uppercase tracking-widest text-sm">{t('Rechtliches', 'Legal')}</h4>
+          <nav className="flex flex-col gap-3 font-bold text-sm">
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('Impressum', 'Imprint')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('Datenschutz', 'Privacy Policy')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('AGB', 'Terms & Conditions')}</Link>
           </nav>
         </div>
 
-        <div className="space-y-4">
-          <h4 className="font-bold text-blue-800">{t('Sprache', 'Language')}</h4>
-          <div className="flex gap-2">
+        <div className="space-y-6">
+          <h4 className="font-black text-primary uppercase tracking-widest text-sm">{t('Sprache', 'Language')}</h4>
+          <div className="flex gap-4">
             <button 
               onClick={() => setLanguage('DE')}
-              className={`font-plus-jakarta text-sm leading-relaxed ${language === 'DE' ? 'text-blue-700 underline' : 'text-slate-500 hover:text-blue-600'}`}>
-              {t('Deutsch', 'German')}
+              className={`font-bold text-sm transition-all ${language === 'DE' ? 'text-primary' : 'text-slate-400 hover:text-primary'}`}>
+              DE
             </button>
-            <span className="text-slate-300">|</span>
+            <span className="text-slate-200">|</span>
             <button 
               onClick={() => setLanguage('EN')}
-              className={`font-plus-jakarta text-sm leading-relaxed ${language === 'EN' ? 'text-blue-700 underline' : 'text-slate-500 hover:text-blue-600'}`}>
-              {t('Englisch', 'English')}
+              className={`font-bold text-sm transition-all ${language === 'EN' ? 'text-primary' : 'text-slate-400 hover:text-primary'}`}>
+              EN
             </button>
           </div>
-          <div className="pt-4 border-t border-slate-200">
-            <p className="text-xs text-slate-400">© 2024 SwissClean & Maintenance. {t('Alle Rechte vorbehalten.', 'All Rights Reserved.')}</p>
+          <div className="pt-6 border-t border-slate-200">
+            <p className="text-[10px] uppercase tracking-widest font-black text-slate-400">© 2024 SwissClean & Maintenance.</p>
           </div>
         </div>
       </div>

@@ -15,17 +15,17 @@ const Contact = () => {
 
           <div className="space-y-6 md:space-y-8">
             <div className="flex gap-4">
-              <span className="material-symbols-outlined text-secondary-container">phone</span>
+              <span className="material-symbols-outlined text-secondary-container">location_on</span>
               <div>
-                <div className="text-sm text-white/60">{t('Telefon', 'Phone')}</div>
-                <div className="font-bold text-lg">+41 00 000 00 00</div>
+                <div className="text-sm text-white/60">{t('Adresse', 'Address')}</div>
+                <div className="font-bold text-lg">Kohlenweg 12, 3097 Liebefeld</div>
               </div>
             </div>
             <div className="flex gap-4">
-              <span className="material-symbols-outlined text-secondary-container">schedule</span>
+              <span className="material-symbols-outlined text-secondary-container">phone</span>
               <div>
-                <div className="text-sm text-white/60">{t('Verfügbarkeit', 'Availability')}</div>
-                <div className="font-bold">{t('Mo - Fr: 08:00 - 18:00', 'Mon - Fri: 08:00 - 18:00')}</div>
+                <div className="text-sm text-white/60">{t('Telefon', 'Phone')}</div>
+                <div className="font-bold text-lg">079 781 14 00</div>
               </div>
             </div>
             <div className="flex gap-4">

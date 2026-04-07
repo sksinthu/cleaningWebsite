@@ -9,6 +9,7 @@ const BottomNav = () => {
   const navItems = [
     { id: 'home', path: '/', icon: 'home', label: t('Home', 'Home') },
     { id: 'services', path: '/services', icon: 'home_work', label: t('Services', 'Services') },
+    { id: 'gallery', path: '/gallery', icon: 'photo_library', label: t('Galerie', 'Gallery') },
     { id: 'pricing', path: '/pricing', icon: 'payments', label: t('Preise', 'Pricing') },
     { id: 'contact', path: '/contact', icon: 'mail', label: t('Kontakt', 'Contact') }
   ];

@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const BeforeAfter = () => {
     const { t } = useLanguage();
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
 
     return (
         <section className="py-16 md:py-24 px-4 bg-surface" id="vorher-nachher">
             <div className="text-center mb-12">
                 <span className="text-secondary font-black uppercase tracking-[0.2em] text-[10px] mb-4 inline-block">{t('Vergleich', 'Comparison')}</span>
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight">{t('Unsere Resultate', 'Our Results')}</h2>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary mb-4 tracking-tight uppercase tracking-tighter">{t('Unsere Resultate', 'Our Results')}</h2>
+                <div className="h-1.5 w-20 bg-secondary mx-auto mb-6 rounded-full"></div>
                 <p className="text-on-surface-variant max-w-2xl mx-auto font-medium">{t('Überzeugen Sie sich selbst von der Qualität unserer Arbeit.', 'See the quality of our work for yourself.')}</p>
             </div>
 
@@ -45,6 +49,19 @@ const BeforeAfter = () => {
                     </div>
                 </div>
             </div>
+
+            {isHomePage && (
+                <div className="mt-16 text-center">
+                    <Link 
+                        to="/gallery" 
+                        className="group inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl shadow-primary/40 active:scale-95 overflow-hidden relative"
+                    >
+                        <span className="relative z-10 uppercase tracking-widest">{t('MEHR SEHEN', 'SEE MORE')}</span>
+                        <span className="material-symbols-outlined relative z-10 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                    </Link>
+                </div>
+            )}
         </section>
     );
 };

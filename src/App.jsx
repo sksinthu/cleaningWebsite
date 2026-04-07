@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import ServicesPage from './pages/ServicesPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
+import GalleryPage from './pages/GalleryPage';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -34,6 +35,7 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
             </Routes>
           </main>
           <Footer />

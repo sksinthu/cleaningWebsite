@@ -4,6 +4,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Achievements from '../components/Achievements';
 import BeforeAfter from '../components/BeforeAfter';
 import Testimonials from '../components/Testimonials';
+import Gallery from '../components/Gallery';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <WhyChooseUs />
       <Achievements />
       <BeforeAfter />
+      {/* <Gallery /> */}
       <Testimonials />
     </div>
   );

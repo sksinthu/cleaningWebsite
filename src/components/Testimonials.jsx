@@ -7,7 +7,7 @@ const Testimonials = () => {
   const reviews = [
     {
       name: "Sabrina M.",
-      role: t("Wohnungsabgabe", "Move-out Cleaning"),
+      role: t("Wohnungsabgabe", "Tenancy Cleaning"),
       text: t("Absolut fantastische Arbeit! Die Wohnung wurde im ersten Anlauf von der Verwaltung abgenommen. Das Team war pünktlich, freundlich und extrem gründlich.", "Absolutely fantastic work! The apartment was accepted by the management on the first try. The team was punctual, friendly, and extremely thorough.")
     },
     {
@@ -17,17 +17,17 @@ const Testimonials = () => {
     },
     {
       name: "Elena K.",
-      role: t("Frühjahrsputz", "Spring Cleaning"),
+      role: t("Frühjahrsputz", "Tenancy Cleaning"),
       text: t("Ich habe noch nie gesehen, dass meine Fenster so sauber sein können! Tolles Preis-Leistungs-Verhältnis und super sympathisches Personal.", "I've never seen my windows this clean! Great value for money and super incredibly friendly staff.")
     },
     {
       name: "Markus R.",
-      role: t("Umzugsreinigung", "Relocation Cleaning"),
+      role: t("Umzugsreinigung", "Apartment Cleaning"),
       text: t("Perfekter Service! Nach dem Baustress war die Reinigung durch die Profis eine enorme Erleichterung. Jeder Rappen hat sich gelohnt.", "Perfect service! After the stress of moving, having the pros clean was a huge relief. Worth every penny.")
     },
     {
       name: "Julia S.",
-      role: t("Abo-Reinigung", "Subscription Cleaning"),
+      role: t("Abo-Reinigung", "Tenancy Cleaning"),
       text: t("Meine Wohnung glänzt jede Woche aufs Neue. Ein absolut vertrauenswürdiges Team, dem ich problemlos meinen Schlüssel überlasse.", "My apartment shines anew every week. An absolutely trustworthy team that I gladly give my keys to without hesitation.")
     }
   ];

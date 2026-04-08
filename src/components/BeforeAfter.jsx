@@ -32,7 +32,7 @@ const BeforeAfter = () => {
                 {/* Top Container (Before) - This whole group will be clipped */}
                 <div className="absolute inset-0 animate-slide-clip z-10 overflow-hidden">
                     <img
-                        src="/befor-after-cleaning/befor-cleaning.jpeg"
+                        src="/befor-after-cleaning/befor-cleaning.jpg"
                         alt="Dirty Space"
                         className="w-full h-full object-cover"
                         draggable="false"

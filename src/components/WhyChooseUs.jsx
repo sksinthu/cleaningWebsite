@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
         <div className="text-center mb-16 md:mb-24">
           <span className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-xl shadow-primary/20 border border-white/10">
             <span className="material-symbols-outlined text-[16px]">verified</span>
-            {t('Warum SwissClean?', 'Why SwissClean?')}
+            {t('Warum PK Top Clean Bern wählen?', 'Why Choose PK Top Clean Bern?')}
           </span>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 tracking-tight">
             {t('Qualität, der Sie vertrauen können', 'Quality You Can Trust')}

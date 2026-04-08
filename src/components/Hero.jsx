@@ -84,7 +84,7 @@ const Hero = () => {
           {/* Experience Badge */}
           <div className="absolute -top-10 -left-10 bg-white p-6 rounded-[32px] shadow-2xl border border-slate-100 animate-float hidden lg:block">
             <div className="text-center">
-              <p className="text-4xl font-black text-primary leading-tight">15+</p>
+              <p className="text-4xl font-black text-primary leading-tight">5+</p>
               <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{t('Jahre Erfahrung', 'Years Experience')}</p>
             </div>
           </div>

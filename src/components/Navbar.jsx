@@ -9,10 +9,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: t('Home', 'Home'), path: '/' },
-    { name: t('Services', 'Services'), path: '/services' },
     { name: t('Preise', 'Pricing'), path: '/pricing' },
     { name: t('Galerie', 'Gallery'), path: '/gallery' },
     { name: t('Kontakt', 'Contact'), path: '/contact' },
+    { name: t('Warum wir?', 'Why Us?'), path: '/services' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -56,7 +56,7 @@ const Navbar = () => {
                   <span className="text-slate-300 font-light">|</span>
 
                   <a href="tel:0797811400" className="flex items-center gap-2 text-primary font-black text-sm hover:text-secondary group transition-all">
-                      <span className="material-symbols-outlined text-xl">call</span>
+                      <span className="material-symbols-outlined text-xl text-secondary">call</span>
                       <span>079 781 14 00</span>
                   </a>
                 </div>
@@ -66,43 +66,41 @@ const Navbar = () => {
 
       {/* --- MOBILE NAVBAR (lg:hidden) --- */}
       <div className="lg:hidden">
-        {/* Row 1: Logo Centered */}
-        <div className="h-20 flex justify-center items-center px-4">
+        <div className="h-20 bg-white px-6 flex justify-between items-center shadow-sm border-b border-slate-50">
+            {/* Left: Logo */}
             <Link to="/" className="flex items-center">
                 <img 
                     src="/Logo.png" 
                     alt="SwissClean" 
-                    className="h-14 w-auto object-contain" 
-                    style={{ imageRendering: 'auto' }}
+                    className="h-10 w-auto object-contain" 
                 />
             </Link>
-        </div>
 
-        {/* Row 2: Menu Icon & Tools */}
-        <div className="h-10 bg-white/95 backdrop-blur-md px-4 flex justify-between items-center">
-             <div className="flex items-center gap-4">
-                <div className="flex bg-slate-50 rounded-full p-0.5 border border-slate-200">
-                    <button onClick={() => setLanguage('DE')} className={`px-2.5 py-0.5 rounded-full text-[9px] font-black transition-all ${language === 'DE' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>DE</button>
-                    <button onClick={() => setLanguage('EN')} className={`px-2.5 py-0.5 rounded-full text-[9px] font-black transition-all ${language === 'EN' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>EN</button>
-                </div>
-            </div>
+            {/* Right: Menu Icon Only (Consolidated tools inside menu) */}
             <button 
-                className="text-primary p-1 -ml-1 flex items-center justify-center"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-primary p-2 flex items-center justify-center active:scale-90 transition-all"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-                <span className="material-symbols-outlined text-2xl font-light">
-                    {isMobileMenuOpen ? 'close' : 'menu'}
-                </span>
+              <span className="material-symbols-outlined text-3xl font-light">
+                {isMobileMenuOpen ? 'close' : 'menu'}
+              </span>
             </button>
-
-           
         </div>
       </div>
 
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-100 shadow-2xl animate-fade-in">
-          <div className="p-6 space-y-6">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-100 shadow-2xl animate-fade-in overflow-hidden">
+          <div className="p-6 space-y-8">
+            {/* Language Selection at the top of menu */}
+            <div className="flex justify-between items-center pb-4 border-b border-slate-100">
+               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('Sprache / Language', 'Language')}</span>
+               <div className="flex bg-slate-50 rounded-full p-0.5 border border-slate-100">
+                    <button onClick={() => setLanguage('DE')} className={`px-4 py-1.5 rounded-full text-[10px] font-black transition-all ${language === 'DE' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>DEUTSCH</button>
+                    <button onClick={() => setLanguage('EN')} className={`px-4 py-1.5 rounded-full text-[10px] font-black transition-all ${language === 'EN' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>ENGLISH</button>
+                </div>
+            </div>
+
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
@@ -118,18 +116,17 @@ const Navbar = () => {
             <div className="pt-6 border-t border-slate-100 flex flex-col gap-4">
                <Link 
                  to="/contact" 
-                 className="w-full py-4 rounded-2xl bg-primary text-white font-black text-center shadow-lg active:scale-95 transition-all text-xs uppercase tracking-widest"
+                 className="w-full py-4 rounded-2xl bg-primary text-white font-black text-center shadow-lg active:scale-95 transition-all text-sm uppercase tracking-widest"
                  onClick={() => setIsMobileMenuOpen(false)}
                >
                   {t('Jetzt anfragen', 'Get a Quote')}
                </Link>
-               {/* Mobile Number after Get a Quote */}
                <a 
                  href="tel:0797811400" 
                  className="w-full py-4 rounded-2xl border-2 border-primary text-primary font-black text-center flex items-center justify-center gap-3 active:scale-95 transition-all text-sm"
                  onClick={() => setIsMobileMenuOpen(false)}
                >
-                  <span className="material-symbols-outlined">call</span>
+                  <span className="material-symbols-outlined text-secondary">call</span>
                   079 781 14 00
                </a>
             </div>

@@ -21,14 +21,14 @@ const Counter = ({ end, duration = 2000, suffix = "", prefix = "" }) => {
 
   useEffect(() => {
     if (!hasStarted) return;
-    
+
     let startTime;
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const easing = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(easing * end));
-      
+
       if (progress < 1) {
         window.requestAnimationFrame(step);
       } else {
@@ -52,18 +52,18 @@ const Achievements = () => {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 text-center">
         <h2 className="font-headline text-3xl md:text-5xl font-bold text-white mb-16 uppercase tracking-tighter opacity-90">
-             {t('Unsere Erfolgsgeschichte in Zahlen', 'Our Success in Numbers')}
+          {t('Unsere Erfolgsgeschichte in Zahlen', 'Our Success in Numbers')}
         </h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          
+
           {/* Card 1 */}
           <div className="group relative flex flex-col items-center">
             <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-pull-full rounded-2xl flex items-center justify-center mb-6 border border-white/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary group-hover:text-primary text-white">
               <span className="material-symbols-outlined text-4xl">schedule</span>
             </div>
             <span className="font-headline text-5xl md:text-6xl font-black text-white tracking-tighter mb-2 drop-shadow-lg">
-              <Counter end={15} suffix="+" />
+              <Counter end={5} suffix="+" />
             </span>
             <span className="font-bold text-white/70 uppercase tracking-widest text-xs">{t('Jahre Erfahrung', 'Years of Experience')}</span>
           </div>
@@ -74,7 +74,7 @@ const Achievements = () => {
               <span className="material-symbols-outlined text-4xl">home</span>
             </div>
             <span className="font-headline text-5xl md:text-6xl font-black text-white tracking-tighter mb-2 drop-shadow-lg">
-              <Counter end={10} suffix="k+" />
+              <Counter end={2} suffix="k+" />
             </span>
             <span className="font-bold text-white/70 uppercase tracking-widest text-xs">{t('Gereinigte Objekte', 'Homes & Offices Cleaned')}</span>
           </div>

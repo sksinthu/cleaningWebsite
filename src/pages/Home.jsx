@@ -1,19 +1,23 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import WhyChooseUs from '../components/WhyChooseUs';
+import Services from '../components/Services';
+import WinterService from '../components/WinterService';
+import ServiceArea from '../components/ServiceArea';
 import Achievements from '../components/Achievements';
 import BeforeAfter from '../components/BeforeAfter';
 import Testimonials from '../components/Testimonials';
-import Gallery from '../components/Gallery';
 
 const Home = () => {
   return (
     <div className="pt-0">
       <Hero />
-      <WhyChooseUs />
+      <Services />
+      <div className="py-12 bg-slate-50">
+        <WinterService />
+      </div>
+      <ServiceArea />
       <Achievements />
       <BeforeAfter />
-      {/* <Gallery /> */}
       <Testimonials />
     </div>
   );

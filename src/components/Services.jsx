@@ -62,17 +62,7 @@ const Services = () => {
         t('Kautions-Sicherheit', 'Secure your full deposit')
       ]
     },
-    { 
-      icon: 'home_work', 
-      title: t('Hauswartung & Reinigung', 'Facility Management & Cleaning'), 
-      desc: t('Umfassende Pflege Ihrer Liegenschaft für langfristigen Werterhalt und ein gepflegtes Erscheinungsbild.', 'Comprehensive care of your property for long-term value retention and a well-kept appearance.'), 
-      image: '/service/facility.jpeg',
-      features: [
-        t('Liegenschaftspflege', 'Property Maintenance'),
-        t('Treppenhausreinigung', 'Staircase Cleaning'),
-        t('Umgebungspflege', 'Exterior Maintenance')
-      ]
-    },
+   
     { 
       icon: 'living', 
       title: t('Wohnungsreinigung', 'Apartment Cleaning'), 
@@ -80,8 +70,9 @@ const Services = () => {
       image: '/service/home.jpeg',
       features: [
         t('Bodenreinigung', 'Floor Cleaning'),
-        t('Küchenreinigung', 'Kitchen Deep Clean'),
-        t('Badezimmer-Hygiene', 'Bathroom Hygiene'),
+      t('Küchenreinigung', 'Kitchen Regular Cleaning'),
+t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
+
         t('Staubwischen', 'Dusting')
       ]
     },
@@ -108,6 +99,16 @@ const Services = () => {
         t('Tech-Equipment Pflege', 'Tech Equipment Care'),
         t('Kaffee-Ecken Hygiene', 'Common Areas Hygiene'),
         t('Konferenzraum-Check', 'Conference Room Check')
+      ]
+    }, { 
+      icon: 'home_work', 
+      title: t('Hauswartung & Reinigung', 'Facility Management & Cleaning'), 
+      desc: t('Umfassende Pflege Ihrer Liegenschaft für langfristigen Werterhalt und ein gepflegtes Erscheinungsbild.', 'Comprehensive care of your property for long-term value retention and a well-kept appearance.'), 
+      image: '/service/facility.jpeg',
+      features: [
+        t('Liegenschaftspflege', 'Property Maintenance'),
+        t('Treppenhausreinigung', 'Staircase Cleaning'),
+        t('Umgebungspflege', 'Exterior Maintenance')
       ]
     },
   ];

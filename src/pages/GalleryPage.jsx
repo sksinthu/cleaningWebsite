@@ -8,7 +8,7 @@ const GalleryPage = () => {
     return (
         <div className="pt-0 min-h-screen">
             {/* Split-Screen Header (Following the new standard) */}
-            <div className="bg-primary relative overflow-hidden pt-12 md:pt-20">
+            <div className="bg-primary relative overflow-hidden pt-32 md:pt-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[#0a192f]"></div>
                 
                 <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-28 relative z-10 grid lg:grid-cols-2 gap-12 items-center">

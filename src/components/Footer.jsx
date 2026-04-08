@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="space-y-6">
           <Link to="/">
-            <img src="/Logo.png" alt="SwissClean" className="h-12 w-auto object-contain" />
+            <img src="/Logo.png" alt="SwissClean" className="h-20 w-auto object-contain" />
           </Link>
           <p className="text-slate-500 font-medium text-sm leading-relaxed">
             {t('Ihr Partner für professionelle Sauberkeit und Werterhalt in der gesamten Schweiz.', 'Your partner for professional cleanliness and value retention throughout Switzerland.')}

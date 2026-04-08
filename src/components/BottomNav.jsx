@@ -11,7 +11,7 @@ const BottomNav = () => {
     { id: 'pricing', path: '/pricing', icon: 'payments', label: t('Preise', 'Pricing') },
     { id: 'gallery', path: '/gallery', icon: 'photo_library', label: t('Galerie', 'Gallery') },
     { id: 'contact', path: '/contact', icon: 'mail', label: t('Kontakt', 'Contact') },
-    { id: 'services', path: '/services', icon: 'home_work', label: t('Warum wir', 'Why Us') },
+    { id: 'services', path: '/whyus', icon: 'home_work', label: t('Warum wir', 'Why Us') },
   ];
 
   const isActive = (path) => location.pathname === path;

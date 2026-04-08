@@ -12,7 +12,7 @@ const Navbar = () => {
     { name: t('Preise', 'Pricing'), path: '/pricing' },
     { name: t('Galerie', 'Gallery'), path: '/gallery' },
     { name: t('Kontakt', 'Contact'), path: '/contact' },
-    { name: t('Warum wir?', 'Why Us?'), path: '/services' },
+    { name: t('Warum wir?', 'Why Us?'), path: '/whyus' },
   ];
 
   const isActive = (path) => location.pathname === path;

@@ -50,7 +50,7 @@ const Hero = () => {
                <span className="relative z-10">{t('Jetzt buchen', 'Book Now')}</span>
                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
             </Link>
-            <Link to="/services" className="px-10 py-5 bg-white/10 text-white backdrop-blur-lg border border-white/20 rounded-2xl font-black text-lg hover:bg-white/20 transition-all flex items-center justify-center">
+            <Link to="/whyus" className="px-10 py-5 bg-white/10 text-white backdrop-blur-lg border border-white/20 rounded-2xl font-black text-lg hover:bg-white/20 transition-all flex items-center justify-center">
               {t('Angebot erhalten', 'Get a Quote')}
             </Link>
           </div>

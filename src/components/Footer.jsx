@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="space-y-6">
           <h4 className="font-black text-primary uppercase tracking-widest text-sm">{t('Quick Links', 'Quick Links')}</h4>
           <nav className="flex flex-col gap-3 font-bold text-sm">
-            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/services">{t('Services', 'Services')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/whyus">{t('Warum wir', 'Why Us')}</Link>
             <Link className="text-slate-500 hover:text-secondary transition-colors" to="/pricing">{t('Preise', 'Pricing')}</Link>
             <Link className="text-slate-500 hover:text-secondary transition-colors" to="/contact">{t('Kontakt', 'Contact')}</Link>
             <Link className="text-slate-500 hover:text-secondary transition-colors" to="/contact">{t('Jetzt buchen', 'Book Now')}</Link>

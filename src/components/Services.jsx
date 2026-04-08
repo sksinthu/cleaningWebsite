@@ -1,10 +1,67 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 
+const ServiceCard = ({ service, t }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  
+  return (
+    <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div className="h-64 relative overflow-hidden">
+        <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60"></div>
+        <div className="absolute bottom-4 left-6 text-white">
+          <span className="material-symbols-outlined text-3xl mb-1">{service.icon}</span>
+          <h3 className="font-headline text-lg font-black uppercase tracking-tight">{service.title}</h3>
+        </div>
+      </div>
+      <div className="p-7 flex-1 flex flex-col">
+        <div className="relative mb-4">
+          <p className={`text-slate-500 font-medium text-sm transition-all duration-300 ${isExpanded ? '' : 'line-clamp-2'}`}>
+            {service.desc}
+          </p>
+          <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-secondary font-black text-lg hover:scale-110 transition-transform mt-1 flex items-center gap-1"
+              title={isExpanded ? t('Weniger anzeigen', 'Show Less') : t('Mehr anzeigen', 'Read More')}
+          >
+              <span className="material-symbols-outlined text-2xl">
+                  {isExpanded ? 'expand_less' : 'more_horiz'}
+              </span>
+          </button>
+        </div>
+        
+        <div className="mt-auto">
+            <h4 className="text-[10px] font-black text-primary uppercase tracking-widest mb-3 opacity-40">{t('Leistungen inkl.', 'Includes')}</h4>
+            <ul className="space-y-2">
+                {service.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex items-center gap-3 text-slate-700 font-bold text-[13px]">
+                        <span className="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                        {feature}
+                    </li>
+                ))}
+            </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Services = () => {
   const { t } = useLanguage();
 
   const mainServices = [
+    { 
+      icon: 'real_estate_agent', 
+      title: t('Endreinigung', 'End of Tenancy Cleaning'), 
+      desc: t('Wir bieten eine professionelle Endreinigung an, um Ihre Immobilie blitzsauber und bereit für die Übergabe zu machen. Unser Service umfasst die Tiefenreinigung aller Räume, der Küche, des Badezimmers, der Fenster, der Böden und eine vollständige Staubentfernung. Wir verwenden professionelle Geräte und umweltfreundliche Produkte, um Schweizer Standards zu erfüllen und Ihnen zu helfen, Ihre volle Kaution zu sichern – stressfrei und pünktlich.', 'We provide professional end of tenancy cleaning to make your property spotless and ready for handover. Our service covers deep cleaning of all rooms, kitchen, bathroom, windows, floors, and complete dust removal. We use professional equipment and eco-friendly products to meet Swiss standards and help you secure your full deposit—stress-free and on time.'), 
+      image: '/service/moveout.jpeg',
+      features: [
+        t('Tiefenreinigung aller Räume', 'Deep cleaning of all rooms'),
+        t('Küche & Bad Spezialreinigung', 'Kitchen & Bathroom deep clean'),
+        t('Schweizer Übergabestandards', 'Swiss handover standards'),
+        t('Kautions-Sicherheit', 'Secure your full deposit')
+      ]
+    },
     { 
       icon: 'home_work', 
       title: t('Hauswartung & Reinigung', 'Facility Management & Cleaning'), 
@@ -13,7 +70,6 @@ const Services = () => {
       features: [
         t('Liegenschaftspflege', 'Property Maintenance'),
         t('Treppenhausreinigung', 'Staircase Cleaning'),
-        t('Technische Checks', 'Technical Checks'),
         t('Umgebungspflege', 'Exterior Maintenance')
       ]
     },
@@ -41,18 +97,7 @@ const Services = () => {
         t('Wintergärten', 'Conservatory Cleaning')
       ]
     },
-    { 
-      icon: 'cleaning_services', 
-      title: t('Unterhaltsreinigung', 'Maintenance Cleaning'), 
-      desc: t('Präzise Intervalle für dauerhafte Sauberkeit.', 'Precise intervals for lasting cleanliness.'), 
-      image: '/service/maintain.jpeg',
-      features: [
-        t('Reinigungsintervalle', 'Regular Intervals'),
-        t('Oberflächenpflege', 'Surface Care'),
-        t('Müllentsorgung', 'Trash Disposal'),
-        t('Desinfektion', 'Disinfection')
-      ]
-    },
+    
     { 
       icon: 'corporate_fare', 
       title: t('Büroreinigung', 'Office Cleaning'), 
@@ -116,30 +161,7 @@ const Services = () => {
         {/* Main Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
           {mainServices.map((service, idx) => (
-            <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <div className="h-64 relative overflow-hidden">
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-6 text-white">
-                  <span className="material-symbols-outlined text-3xl mb-1">{service.icon}</span>
-                  <h3 className="font-headline text-lg font-black uppercase tracking-tight">{service.title}</h3>
-                </div>
-              </div>
-              <div className="p-7 flex-1 flex flex-col">
-                <p className="text-slate-500 font-medium mb-4 text-sm line-clamp-2">{service.desc}</p>
-                <div className="mt-auto">
-                    <h4 className="text-[10px] font-black text-primary uppercase tracking-widest mb-3 opacity-40">{t('Leistungen inkl.', 'Includes')}</h4>
-                    <ul className="space-y-2">
-                        {service.features.map((feature, fIdx) => (
-                            <li key={fIdx} className="flex items-center gap-3 text-slate-700 font-bold text-[13px]">
-                                <span className="material-symbols-outlined text-secondary text-sm">check_circle</span>
-                                {feature}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-              </div>
-            </div>
+            <ServiceCard key={idx} service={service} t={t} />
           ))}
         </div>
 

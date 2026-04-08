@@ -21,7 +21,8 @@ const WhyChooseUs = () => {
       icon: 'security',
       title: t('Versichert & Geprüft', 'Fully Insured & Vetted'),
       desc: t('Unser Personal ist fest angestellt, geschult und selbstverständlich voll versichert.', 'Our staff is permanently employed, trained, and fully insured.'),
-      img: '/Whychoose-us/photo-1584622650111-993a426fbf0a.avif'
+      img: '/Whychoose-us/service.png'
+      
     },
     {
       icon: 'price_check',

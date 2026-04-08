@@ -96,9 +96,9 @@ const Achievements = () => {
               <span className="material-symbols-outlined text-4xl">groups</span>
             </div>
             <span className="font-headline text-5xl md:text-6xl font-black text-white tracking-tighter mb-2 drop-shadow-lg">
-              <Counter end={12} suffix="+" />
+              <Counter end={4} />
             </span>
-            <span className="font-bold text-white/70 uppercase tracking-widest text-xs">{t('Reinigungsexperten', 'Trained Experts')}</span>
+            <span className="font-bold text-white/70 uppercase tracking-widest text-xs">{t('Professionelles Personal', 'Professional Staff')}</span>
           </div>
 
         </div>

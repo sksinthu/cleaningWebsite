@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40 bg-[#0a192f]">
+    <section className="relative overflow-hidden pt-40 pb-20 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40 bg-[#0a192f]">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>

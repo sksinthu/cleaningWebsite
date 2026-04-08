@@ -112,7 +112,7 @@ const Contact = () => {
               </div>
 
               <button
-                className="w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] bg-secondary text-primary shadow-2xl transition-all active:scale-95 hover:shadow-secondary/20 hover:-translate-y-1 flex items-center justify-center gap-4"
+                className="w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] bg-secondary text-white shadow-2xl transition-all active:scale-95 hover:shadow-secondary/20 hover:-translate-y-1 flex items-center justify-center gap-4"
                 type="submit"
               >
                 {t('Senden', 'Send Message')}

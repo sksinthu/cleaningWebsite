@@ -23,6 +23,19 @@ const ContactPage = () => {
                       <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
                         {t('Haben Sie Fragen oder möchten Sie direkt eine Buchung vornehmen? Unser Team steht Ihnen jederzeit zur Verfügung, um Ihnen die perfekte Reinigungslösung zu bieten.', 'Do you have questions or want to make a booking directly? Our team is always available to provide you with the perfect cleaning solution.')}
                       </p>
+                      <div className="flex flex-wrap gap-4 mb-8">
+                        <a 
+                          href="https://www.tiktok.com/@pk.top.clean?_r=1&_t=ZS-95MlYnWHUgB" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-secondary transition-all shadow-lg group"
+                        >
+                          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.02 1.4-.43 2.82-1.32 3.91-.95 1.25-2.45 2.01-4 2.15-1.54.14-3.15-.17-4.48-1.01-1.35-.85-2.31-2.28-2.61-3.83-.43-2.07.28-4.32 1.83-5.71 1.4-1.27 3.39-1.74 5.25-1.31v4.21c-.81-.24-1.72-.11-2.42.34-.73.45-1.16 1.34-1.16 2.19 0 1.25 1.05 2.3 2.35 2.3 1.21 0 2.23-.91 2.35-2.05.04-3.66.02-7.32.02-10.99 0-2.31 0-4.61.01-6.92Z"/>
+                          </svg>
+                          {t('TikTok Ergebnisse', 'TikTok Results')}
+                        </a>
+                      </div>
                    </div>
 
                    <div className="relative hidden lg:block">

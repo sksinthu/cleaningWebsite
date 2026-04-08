@@ -9,13 +9,13 @@ const WhyChooseUs = () => {
       icon: 'verified',
       title: t('Abnahmegarantie', '100% Satisfaction Guarantee'),
       desc: t('Stressfreie Wohnungsübergabe dank unserer garantierten Reinigungsstandards.', 'Stress-free apartment handover thanks to our guaranteed cleaning standards.'),
-      img: '/Whychoose-us/photo-1527515637462-cff94eecc1ac.avif'
+      img: '/Whychoose-us/photo-1527515637462-cff94eecc1ac.png'
     },
     {
       icon: 'eco',
       title: t('Umweltfreundlich', 'Eco-Friendly Products'),
       desc: t('Wir verwenden nachhaltige, biologisch abbaubare Produkte für Ihre Gesundheit.', 'We use sustainable, biodegradable products for your health.'),
-      img: '/Whychoose-us/photo-1610557892470-55d9e80c0bce.avif'
+      img: '/Whychoose-us/photo-1610557892470-55d9e80c0bce.png'
     },
     {
       icon: 'security',

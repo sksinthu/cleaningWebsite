@@ -36,8 +36,8 @@ const WinterService = () => {
         <div className="relative z-0">
           <img 
             alt="Winter Service" 
-            className="rounded-3xl object-cover h-80 w-full shadow-2xl" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3psMiZOTaDM2w35YRzADs7QgvWqvtsgZUh_8-AcyFk24DpEUeylM5ArGjPhXab3ahpUt_8HkfakyT8TPQ5Sf_6E6Vj9K7CvpKWBu7lJNpUQ8TZkARhIQ6OHdQWqODKdwjkFDDiHmVco16TnCc7Gl5T5Wk8LYd9hYwUaN5IC-4c0Pz9YFUunUrUPx1OIbDTQi9Ea9VNe7Gph-l1gWc6gvSsRWzkD7vtUrMTxA5nIWhmKdUN1ONPHm7BMAoHmU4NvbXRXK7n428ZZpi"
+            className="rounded-3xl object-cover h-64 sm:h-80 w-full shadow-2xl" 
+            src="/sino.png"
           />
         </div>
       </div>

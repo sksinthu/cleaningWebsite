@@ -18,7 +18,7 @@ const ServicesPage = () => {
               <span className="material-symbols-outlined text-[14px]">auto_awesome</span>
               {t('Was wir bieten', 'What We Offer')}
             </span>
-            <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tighter uppercase leading-[0.95]">
+            <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tighter uppercase leading-[0.95]">
               {t('UNSERE', 'OUR')} <br />
               <span className="text-secondary-fixed decoration-secondary underline decoration-8 underline-offset-8">{t('SERVICES', 'SERVICES')}</span>
             </h1>
@@ -30,7 +30,7 @@ const ServicesPage = () => {
           <div className="relative hidden lg:block">
              <div className="relative rounded-[40px] overflow-hidden border-[10px] border-white/10 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-700 aspect-video">
                 <img 
-                  src="/service.avif" 
+                  src="/service/service.png" 
                   alt="Professional Service" 
                   className="w-full h-full object-cover"
                 />

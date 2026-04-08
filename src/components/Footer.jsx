@@ -39,9 +39,8 @@ const Footer = () => {
         <div className="space-y-6">
           <h4 className="font-black text-primary uppercase tracking-widest text-sm">{t('Rechtliches', 'Legal')}</h4>
           <nav className="flex flex-col gap-3 font-bold text-sm">
-            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('Impressum', 'Imprint')}</Link>
-            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('Datenschutz', 'Privacy Policy')}</Link>
-            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/">{t('AGB', 'Terms & Conditions')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/privacy">{t('Datenschutz', 'Privacy Policy')}</Link>
+            <Link className="text-slate-500 hover:text-secondary transition-colors" to="/terms">{t('AGB', 'Terms & Conditions')}</Link>
           </nav>
         </div>
 

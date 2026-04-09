@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const ServiceCard = ({ service, t }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   
   return (
-    <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+    <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
       <div className="h-64 relative overflow-hidden">
         <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60"></div>
@@ -14,7 +15,7 @@ const ServiceCard = ({ service, t }) => {
           <h3 className="font-headline text-lg font-black uppercase tracking-tight">{service.title}</h3>
         </div>
       </div>
-      <div className="p-7 flex-1 flex flex-col">
+      <div className="p-7 pb-24 flex-1 flex flex-col">
         <div className="relative mb-4">
           <p className={`text-slate-500 font-medium text-sm transition-all duration-300 ${isExpanded ? '' : 'line-clamp-2'}`}>
             {service.desc}
@@ -25,7 +26,7 @@ const ServiceCard = ({ service, t }) => {
               title={isExpanded ? t('Weniger anzeigen', 'Show Less') : t('Mehr anzeigen', 'Read More')}
           >
               <span className="material-symbols-outlined text-2xl">
-                  {isExpanded ? 'expand_less' : 'more_horiz'}
+                  {isExpanded ? 'more_horiz' : 'more_horiz'}
               </span>
           </button>
         </div>
@@ -42,6 +43,14 @@ const ServiceCard = ({ service, t }) => {
             </ul>
         </div>
       </div>
+
+      {/* Book Now Button - Bottom Right */}
+      <div className="absolute bottom-6 right-6">
+          <Link to="/contact" className="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 shadow-lg shadow-primary/20 flex items-center gap-2 group/btn">
+             {t('JETZT BUCHEN', 'BOOK NOW')}
+             <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward_ios</span>
+          </Link>
+      </div>
     </div>
   );
 };
@@ -51,28 +60,14 @@ const Services = () => {
 
   const mainServices = [
     { 
-      icon: 'real_estate_agent', 
-      title: t('Endreinigung', 'End of Tenancy Cleaning'), 
-      desc: t('Wir bieten eine professionelle Endreinigung an, um Ihre Immobilie blitzsauber und bereit für die Übergabe zu machen. Unser Service umfasst die Tiefenreinigung aller Räume, der Küche, des Badezimmers, der Fenster, der Böden und eine vollständige Staubentfernung. Wir verwenden professionelle Geräte und umweltfreundliche Produkte, um Schweizer Standards zu erfüllen und Ihnen zu helfen, Ihre volle Kaution zu sichern – stressfrei und pünktlich.', 'We provide professional end of tenancy cleaning to make your property spotless and ready for handover. Our service covers deep cleaning of all rooms, kitchen, bathroom, windows, floors, and complete dust removal. We use professional equipment and eco-friendly products to meet Swiss standards and help you secure your full deposit—stress-free and on time.'), 
-      image: '/service/moveout.jpeg',
-      features: [
-        t('Tiefenreinigung aller Räume', 'Deep cleaning of all rooms'),
-        t('Küche & Bad Spezialreinigung', 'Kitchen & Bathroom deep clean'),
-        t('Schweizer Übergabestandards', 'Swiss handover standards'),
-        t('Kautions-Sicherheit', 'Secure your full deposit')
-      ]
-    },
-   
-    { 
       icon: 'living', 
-      title: t('Wohnungsreinigung', 'Apartment Cleaning'), 
+      title: t('Regelmäßige Wohnungsreinigung', 'Regular Apartment Cleaning'), 
       desc: t('Regelmässige Reinigung für Ihr Wohlbefinden zu Hause.', 'Regular cleaning for your well-being at home.'), 
       image: '/service/home.jpeg',
       features: [
         t('Bodenreinigung', 'Floor Cleaning'),
-      t('Küchenreinigung', 'Kitchen Regular Cleaning'),
-t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
-
+        t('Küchenreinigung', 'Kitchen Regular Cleaning'),
+        t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
         t('Staubwischen', 'Dusting')
       ]
     },
@@ -88,7 +83,6 @@ t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
         t('Wintergärten', 'Conservatory Cleaning')
       ]
     },
-    
     { 
       icon: 'corporate_fare', 
       title: t('Büroreinigung', 'Office Cleaning'), 
@@ -160,7 +154,7 @@ t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
         </div>
 
         {/* Main Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mb-20 max-w-5xl mx-auto">
           {mainServices.map((service, idx) => (
             <ServiceCard key={idx} service={service} t={t} />
           ))}
@@ -168,7 +162,7 @@ t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
 
         {/* High-End All-New Clearances Section */}
         <div className="mt-32">
-          <div className="flex flex-col items-center text-center mb-20">
+          <div className="flex flex-col items-center text-center mb-16 md:mb-20">
             <span className="text-secondary font-black text-xs uppercase tracking-[0.3em] mb-4">{t('Spezialaufgaben', 'Specialized Tasks')}</span>
             <h4 className="font-headline text-4xl md:text-5xl font-black text-primary uppercase tracking-tight">
                 {t('RÄUMUNGEN &', 'CLEARANCES &')} <span className="text-secondary">{t('ENTSORGUNG', 'DISPOSAL')}</span>
@@ -178,14 +172,14 @@ t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
           
           <div className="space-y-8 max-w-5xl mx-auto">
             {additionalServices.map((service, idx) => (
-              <div key={idx} className={`flex flex-col md:flex-row gap-0 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 group hover:shadow-2xl transition-all duration-500 md:h-[450px] ${idx % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+              <div key={idx} className={`flex flex-col md:flex-row gap-0 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 group hover:shadow-2xl transition-all duration-500 md:h-[400px] relative ${idx % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                 {/* Image Section - Large & Clear */}
                 <div className="w-full md:w-3/5 h-64 md:h-full overflow-hidden">
                     <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
                 </div>
                 
                 {/* Content Section - Clean & Boutique */}
-                <div className="w-full md:w-2/5 p-8 md:p-12 bg-white flex flex-col justify-center items-start text-left h-full">
+                <div className="w-full md:w-2/5 p-8 md:p-12 bg-white flex flex-col justify-center items-start text-left h-full pb-28 md:pb-12">
                     <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm border border-slate-100">
                       <span className="material-symbols-outlined text-3xl text-primary group-hover:text-white">{service.icon}</span>
                     </div>
@@ -196,6 +190,8 @@ t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
                     <p className="text-slate-500 text-sm font-medium leading-relaxed">
                         {service.desc}
                     </p>
+
+                   
                 </div>
               </div>
             ))}

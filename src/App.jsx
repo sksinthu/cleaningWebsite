@@ -30,7 +30,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <div className="bg-surface font-body text-on-surface antialiased pb-20 md:pb-0 flex flex-col min-h-screen">
+        <div className="bg-surface font-body text-on-surface antialiased pb-32 md:pb-0 flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
             <Routes>

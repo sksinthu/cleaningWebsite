@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
+import { Link } from "react-router-dom";
 
 const Pricing = () => {
   const { t } = useLanguage();
@@ -65,10 +66,10 @@ const Pricing = () => {
                   ))}
                 </div>
               </div>
-              
+              <Link to="/contact">
               <button className="w-full bg-slate-100 group-hover:bg-white text-primary py-3 rounded-full font-bold text-sm hover:bg-slate-200 group-hover:hover:bg-surface-bright transition-colors duration-300 mt-auto relative z-10">
                 {t('Jetzt anfragen', 'Request now')}
-              </button>
+              </button></Link>
             </div>
           );
         })}

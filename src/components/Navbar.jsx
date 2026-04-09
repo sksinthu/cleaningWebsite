@@ -7,7 +7,7 @@ const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
-  const navLinks = [
+  const menuItems = [
     { name: t('Home', 'Home'), path: '/' },
     { name: t('Preise', 'Pricing'), path: '/pricing' },
     { name: t('Galerie', 'Gallery'), path: '/gallery' },
@@ -18,122 +18,115 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-slate-100">
-      
-      {/* --- DESKTOP NAVBAR (lg:flex) --- */}
-      <div className="hidden lg:block">
-        <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-            {/* Logo Left */}
-            <Link to="/" className="flex items-center">
-                <img src="/Logo.png" alt="SwissClean" className="h-12 w-auto" />
+    <>
+      {/* desktop navbar - Transparent/Dark Theme */}
+      <header className="hidden lg:block absolute top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div className="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3">
+             <img src="/Logo.png" alt="Logo" className="h-14 w-auto brightness-0 invert" />
+          </Link>
+
+          <nav className="flex items-center gap-10">
+            {menuItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
+                  isActive(item.path) ? 'text-green-400 font-black' : 'text-white'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2 border-2 rounded-[2.5rem] p-1 px-3 border-white/20">
+                <button onClick={() => setLanguage('DE')} className={`text-xs font-black uppercase transition-all px-2 py-1 ${language === 'DE' ? 'text-green-400' : 'text-white/60 hover:text-white'}`}>DE</button>
+                <span className="text-white/10 uppercase font-black text-[10px]">|</span>
+                <button onClick={() => setLanguage('EN')} className={`text-xs font-black uppercase transition-all px-2 py-1 ${language === 'EN' ? 'text-green-400' : 'text-white/60 hover:text-white'}`}>EN</button>
+            </div>
+            <Link to="/contact" className="bg-[#0062ff] text-white px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-[#0062ff] transition-all duration-300 shadow-2xl shadow-[#0062ff]/20">
+               {t('Kostenloses Angebot', 'Get A Quote')}
             </Link>
-
-            {/* Menu Middle */}
-            <div className="flex items-center gap-10">
-                {navLinks.map((link) => (
-                    <Link
-                        key={link.path}
-                        to={link.path}
-                        className={`text-[13px] font-black uppercase tracking-[0.15em] transition-all hover:text-secondary py-2 border-b-2 ${isActive(link.path) ? 'text-secondary border-secondary' : 'text-primary border-transparent'}`}
-                    >
-                        {link.name}
-                    </Link>
-                ))}
-            </div>
-
-            {/* Utilities Right */}
-            <div className="flex items-center gap-6">
-                <div className="flex bg-slate-50 rounded-full p-0.5 border border-slate-200">
-                    <button onClick={() => setLanguage('DE')} className={`px-2.5 py-0.5 rounded-full text-[9px] font-black transition-all ${language === 'DE' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>DE</button>
-                    <button onClick={() => setLanguage('EN')} className={`px-2.5 py-0.5 rounded-full text-[9px] font-black transition-all ${language === 'EN' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>EN</button>
-                </div>
-                
-                <div className="flex items-center gap-6">
-                  <Link to="/contact" className="bg-primary text-white px-8 py-3 rounded-full font-black text-[12px] uppercase tracking-widest hover:bg-secondary transition-all shadow-md active:scale-95">
-                      {t('Jetzt anfragen', 'Get a Quote')}
-                  </Link>
-                  
-                  <span className="text-slate-300 font-light">|</span>
-
-                  <a href="tel:0797811400" className="flex items-center gap-2 text-primary font-black text-sm hover:text-secondary group transition-all">
-                      <span className="material-symbols-outlined text-xl text-secondary">call</span>
-                      <span>079 781 14 00</span>
-                  </a>
-                </div>
-            </div>
-        </div>
-      </div>
-
-      {/* --- MOBILE NAVBAR (lg:hidden) --- */}
-      <div className="lg:hidden">
-        <div className="h-20 bg-white px-6 flex justify-between items-center shadow-sm border-b border-slate-50">
-            {/* Left: Logo */}
-            <Link to="/" className="flex items-center">
-                <img 
-                    src="/Logo.png" 
-                    alt="SwissClean" 
-                    className="h-10 w-auto object-contain" 
-                />
-            </Link>
-
-            {/* Right: Menu Icon Only (Consolidated tools inside menu) */}
-            <button 
-              className="text-primary p-2 flex items-center justify-center active:scale-90 transition-all"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <span className="material-symbols-outlined text-3xl font-light">
-                {isMobileMenuOpen ? 'close' : 'menu'}
-              </span>
-            </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Drawer */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-100 shadow-2xl animate-fade-in overflow-hidden">
-          <div className="p-6 space-y-8">
-            {/* Language Selection at the top of menu */}
-            <div className="flex justify-between items-center pb-4 border-b border-slate-100">
-               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('Sprache / Language', 'Language')}</span>
-               <div className="flex bg-slate-50 rounded-full p-0.5 border border-slate-100">
-                    <button onClick={() => setLanguage('DE')} className={`px-4 py-1.5 rounded-full text-[10px] font-black transition-all ${language === 'DE' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>DEUTSCH</button>
-                    <button onClick={() => setLanguage('EN')} className={`px-4 py-1.5 rounded-full text-[10px] font-black transition-all ${language === 'EN' ? 'bg-primary text-white shadow-sm' : 'text-primary/40'}`}>ENGLISH</button>
-                </div>
-            </div>
-
-            <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-lg font-black uppercase tracking-widest p-2 rounded-xl transition-all ${isActive(link.path) ? 'bg-secondary/5 text-secondary pl-4' : 'text-primary'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-            <div className="pt-6 border-t border-slate-100 flex flex-col gap-4">
-               <Link 
-                 to="/contact" 
-                 className="w-full py-4 rounded-2xl bg-primary text-white font-black text-center shadow-lg active:scale-95 transition-all text-sm uppercase tracking-widest"
-                 onClick={() => setIsMobileMenuOpen(false)}
-               >
-                  {t('Jetzt anfragen', 'Get a Quote')}
-               </Link>
-               <a 
-                 href="tel:0797811400" 
-                 className="w-full py-4 rounded-2xl border-2 border-primary text-primary font-black text-center flex items-center justify-center gap-3 active:scale-95 transition-all text-sm"
-                 onClick={() => setIsMobileMenuOpen(false)}
-               >
-                  <span className="material-symbols-outlined text-secondary">call</span>
-                  079 781 14 00
-               </a>
-            </div>
+            <span className="text-white font-light opacity-20">|</span>
+            <a href="tel:0797811400" className="flex items-center gap-2 text-white font-black text-sm hover:text-secondary group transition-all">
+                <span className="material-symbols-outlined text-xl text-white">call</span>
+                <span>079 781 14 00</span>
+            </a>
           </div>
         </div>
-      )}
-    </nav>
+      </header>
+
+      {/* MOBILE NAVBAR (Matching sample.jpg) */}
+      <header className="lg:hidden absolute top-0 left-0 right-0 z-50">
+        <div className="relative px-6 py-10 flex flex-col items-center justify-center">
+            {/* Dark gradient for readability */}
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0a192f] to-transparent -z-10 opacity-60"></div>
+            
+            {/* Logo Area (Centered) */}
+            <Link to="/" className="flex flex-col items-center text-center">
+              <div className="relative mb-2">
+                <img 
+                   src="/Logo.png" 
+                   alt="Logo" 
+                   className="h-20 w-auto brightness-0 invert" 
+                />
+              </div>
+            </Link>
+
+            {/* Menu Trigger (Top Right) */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="absolute top-6 right-8 text-white focus:outline-none"
+            >
+              <div className="flex flex-col gap-1.5 p-2 pb-3">
+                <div className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                <div className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
+                <div className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+              </div>
+            </button>
+        </div>
+
+        {/* Full Screen Menu Tray - Restored Original Design & Animation */}
+        <div className={`fixed inset-0 bg-primary/95 backdrop-blur-2xl transition-all duration-500 z-[60] ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+             <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-8 right-8 text-white p-4"
+             >
+                <span className="material-symbols-outlined text-4xl">close</span>
+             </button>
+             
+             <div className="h-full flex flex-col items-center justify-center p-8 space-y-2">
+                {/* Logo at the Top */}
+                <img src="/Logo.png" alt="Logo" className="h-24 w-auto brightness-0 invert mb-6" />
+
+                {/* Integration of Language Toggle BETWEEN Logo and Menu Links */}
+                <div className="flex items-center gap-6 mb-10 border border-white/10 rounded-full px-5 py-2 hover:border-white/30 transition-all">
+                    <button onClick={() => setLanguage('DE')} className={`text-lg font-black tracking-widest ${language === 'DE' ? 'text-green-400' : 'text-white/40'}`}>DE</button>
+                    <span className="text-white/10 uppercase font-black text-[18px]">|</span>
+                    <button onClick={() => setLanguage('EN')} className={`text-lg font-black tracking-widest ${language === 'EN' ? 'text-green-400' : 'text-white/40'}`}>EN</button>
+                </div>
+                
+                {/* Menu Items */}
+                <div className="flex flex-col items-center w-full">
+                  {menuItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`w-full text-center text-2xl font-black uppercase tracking-[0.2em] transition-all py-3 ${
+                        isActive(item.path) ? 'text-green-400' : 'text-white'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+             </div>
+        </div>
+      </header>
+    </>
   );
 };
 

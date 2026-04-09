@@ -24,7 +24,7 @@ const BottomNav = () => {
           <Link
             key={item.id}
             to={item.path}
-            className={`flex flex-col items-center justify-center w-16 gap-1 transition-all duration-300 ${
+            className={`flex flex-col items-center justify-center w-14 sm:w-16 gap-1 transition-all duration-300 ${
               active ? 'text-primary scale-110 translate-y-[-4px]' : 'text-slate-400'
             }`}
           >

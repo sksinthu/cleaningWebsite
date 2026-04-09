@@ -15,9 +15,9 @@ const Home = () => {
       <div className="py-12 bg-slate-50">
         <WinterService />
       </div>
+      <BeforeAfter />
       <ServiceArea />
       <Achievements />
-      <BeforeAfter />
       <Testimonials />
     </div>
   );

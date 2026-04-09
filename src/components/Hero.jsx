@@ -1,93 +1,123 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const { t } = useLanguage();
-  const [currentImg, setCurrentImg] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState(0);
 
-  const images = [
-    "/herosection-images/unnamed.png",
-    "/herosection-images/anton-y-bjqTUUw2Q-unsplash.png",
-    "/herosection-images/giorgio-trovato-5TXz228u4eo-unsplash.png",
-    "/herosection-images/puroclean-of-fort-worth--dc38HdQR1M-unsplash.png",
-    "/herosection-images/toon-lambrechts-0FTI9ceTUOc-unsplash.jpeg"
+  const heroImages = [
+    '/herosection-images/anton-y-bjqTUUw2Q-unsplash.png',
+    '/herosection-images/giorgio-trovato-5TXz228u4eo-unsplash.png',
+    '/herosection-images/puroclean-of-fort-worth--dc38HdQR1M-unsplash.png',
+    '/herosection-images/unnamed.png',
+    '/herosection-images/toon-lambrechts-0FTI9ceTUOc-unsplash.jpeg'
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImg((prev) => (prev + 1) % images.length);
-    }, 4500);
+      setCurrentIdx((prev) => (prev + 1) % heroImages.length);
+    }, 4000); // Rotate every 4 seconds
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-40 pb-20 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40 bg-[#0a192f]">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 animate-pulse pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 lg:pt-42 pb-12 overflow-hidden bg-[#0a192f]">
+      {/* Background with subtle gradient matching references */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1b33] via-[#0c2447] to-[#0a192f] -z-20"></div>
+      
+      {/* Decorative Blur and pattern */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-30 pointer-events-none -z-10 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1),transparent_70%)]"></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
-        <div className="text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in shadow-xl">
-            <span className="w-2.5 h-2.5 bg-secondary rounded-full animate-ping"></span>
-            <span className="text-white font-black text-[10px] uppercase tracking-[0.2em]">{t('Premium Reinigung Schweiz', 'Premium Cleaning Switzerland')}</span>
-          </div>
-          
-          <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[1.05] mb-8 drop-shadow-2xl">
-            {t('Schweizer Präzision', 'Swiss Precision')} <br />
-            <span className="text-secondary inline-block hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_20px_rgba(250,204,21,0.4)]">
-              {t('in jeder Reinigung', 'in Every Cleaning')}
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        {/* --- MOBILE LAYOUT (lg:hidden) - Matching sample.jpg --- */}
+        <div className="lg:hidden text-center flex flex-col items-center">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[9px] font-black uppercase tracking-[0.2em] text-white/70 mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2eb872]"></span>
+                {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
             </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-300 font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            {t('Vertrauen, Zuverlässigkeit und erstklassiger Service. Wir sorgen für strahlende Sauberkeit in Ihrem Zuhause oder Büro – schnell und umweltfreundlich.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-            <Link to="/contact" className="group relative px-10 py-5 bg-primary text-white rounded-2xl font-black text-lg hover:scale-110 transition-all shadow-2xl shadow-primary/40 active:scale-95 flex items-center justify-center overflow-hidden">
-               <span className="relative z-10">{t('Jetzt buchen', 'Book Now')}</span>
-               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
-            </Link>
-            <Link to="/whyus" className="px-10 py-5 bg-white/10 text-white backdrop-blur-lg border border-white/20 rounded-2xl font-black text-lg hover:bg-white/20 transition-all flex items-center justify-center">
-              {t('Angebot erhalten', 'Get a Quote')}
-            </Link>
-          </div>
+
+            <h2 className="font-headline text-[40px] font-black mb-8 leading-[1.1] tracking-tighter">
+                <span className="text-white block">{t('Swiss Precision', 'Swiss Precision')}</span>
+                <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
+            </h2>
+            <p className="text-white/60 text-lg mb-12 leading-relaxed font-medium max-w-sm mx-auto">
+                {t('Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
+            </p>
+            <div className="w-full flex flex-col gap-4 max-w-sm">
+                <Link to="/contact" className="w-full bg-[#0062ff] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white hover:text-[#0062ff] transition-all shadow-2xl shadow-[#0062ff]/20 active:scale-95">
+                    {t('Book Now', 'Book Now')}
+                </Link>
+                <Link to="/pricing" className="w-full bg-white/5 backdrop-blur-md text-white border border-white/20 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95">
+                    {t('Get a Quote', 'Get a Quote')}
+                </Link>
+            </div>
         </div>
 
-        <div className="relative group">
-          <div className="absolute -inset-4 bg-secondary/20 rounded-[40px] blur-[100px] opacity-50 group-hover:opacity-80 transition-opacity duration-700 animate-pulse pointer-events-none"></div>
-          
-          <div className="relative aspect-square md:aspect-[4/5] lg:aspect-square w-full rounded-[40px] overflow-hidden shadow-2xl border-[12px] border-white/10 backdrop-blur-sm animate-float bg-slate-800">
-            {images.map((src, index) => (
-               <img 
-                 key={index}
-                 alt={t('Professionelle Reinigung', 'Professional Cleaning')}
-                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} 
-                 src={src}
-               />
-            ))}
-            
-            {/* Visual Progress Dots */}
-            <div className="absolute bottom-10 left-0 right-0 z-20 flex justify-center gap-3">
-               {images.map((_, index) => (
-                 <div 
-                   key={index} 
-                   onClick={() => setCurrentImg(index)}
-                   className={`h-2 rounded-full cursor-pointer transition-all duration-500 shadow-lg ${index === currentImg ? 'w-10 bg-secondary' : 'w-2 bg-white/40 hover:bg-white/80'}`}
-                 />
-               ))}
+        {/* --- DESKTOP LAYOUT (hidden lg:grid) - Matching oldherosection.png --- */}
+        <div className="hidden lg:grid grid-cols-2 gap-16 items-center">
+            <div className="text-left">
+                <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white/70 mb-8">
+                    <span className="w-2 h-2 rounded-full bg-[#2eb872]"></span>
+                    {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
+                </span>
+                
+                <h2 className="font-headline text-7xl xl:text-8xl font-black mb-10 leading-[1.05] tracking-tighter">
+                    <span className="text-white block">{t('Swiss Precision', 'Swiss Precision')}</span>
+                    <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
+                </h2>
+                
+                <p className="text-white/60 text-xl mb-12 leading-relaxed font-medium max-w-lg">
+                    {t('Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
+                </p>
+                
+                <div className="flex items-center gap-6">
+                    <Link to="/contact" className="bg-[#0062ff] text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-2xl shadow-[#0062ff]/20">
+                        {t('Book Now', 'Book Now')}
+                    </Link>
+                    <Link to="/pricing" className="px-12 py-5 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all">
+                        {t('Get a Quote', 'Get a Quote')}
+                    </Link>
+                </div>
             </div>
-          </div>
-          
-          {/* Experience Badge */}
-          <div className="absolute -top-10 -left-10 bg-white p-6 rounded-[32px] shadow-2xl border border-slate-100 animate-float hidden lg:block">
-            <div className="text-center">
-              <p className="text-4xl font-black text-primary leading-tight">5+</p>
-              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{t('Jahre Erfahrung', 'Years Experience')}</p>
+
+            <div className="relative h-[650px]">
+                {/* Image Carousel matching oldherosection.png structure */}
+                <div className="relative z-10 w-full h-full rounded-[4rem] overflow-hidden border-[16px] border-white/5 shadow-2xl">
+                    {heroImages.map((img, idx) => (
+                        <div 
+                            key={idx}
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIdx ? 'opacity-100' : 'opacity-0'}`}
+                        >
+                            <img 
+                                src={img} 
+                                alt={`Hero Slide ${idx}`} 
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    ))}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a192f] to-transparent"></div>
+                </div>
+
+                {/* Experience Badge matching oldherosection.png */}
+                <div className="absolute -top-7 -left-12 bg-white p-6 rounded-[2.5rem] shadow-2xl z-20 flex flex-col items-center gap-1 border border-slate-100 animate-float translate-x-4 lg:translate-x-0">
+                    <span className="text-[#0062ff] font-black text-5xl leading-none">5+</span>
+                    <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-center whitespace-nowrap">
+                        {t('JAHRE ERFAHRUNG', 'YEARS EXPERIENCE')}
+                    </span>
+                </div>
+
+                {/* Carousel Plate Indicators */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+                    {heroImages.map((_, idx) => (
+                        <div 
+                            key={idx}
+                            className={`h-1 rounded-full transition-all duration-300 ${idx === currentIdx ? 'w-8 bg-[#2eb872]' : 'w-2 bg-white/30'}`}
+                        ></div>
+                    ))}
+                </div>
             </div>
-          </div>
         </div>
       </div>
     </section>

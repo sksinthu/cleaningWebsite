@@ -59,18 +59,30 @@ const Services = () => {
   const { t } = useLanguage();
 
   const mainServices = [
-    { 
+   { 
+      icon: 'task_alt', 
+      title: t('Endreinigung ', 'Final Cleaning '), 
+      desc: t('Professionelle Endreinigung mit Abnahmegarantie nach Schweizer Standards.', 'Professional final cleaning with handover guarantee according to Swiss standards.'), 
+      image: '/service/moveout.jpeg',
+      features: [
+        t('Tiefenreinigung aller Räume', 'Deep cleaning of all rooms'),
+        t('Küchen- & Bad-Spezialreinigung', 'Kitchen & Bathroom Special Cleaning'),
+        t('Schweizer Abgabestandards', 'Swiss handover standards'),
+        t('Depotgarantie-Sicherheit', 'Deposit security')
+      ]
+    }, { 
       icon: 'living', 
       title: t('Regelmäßige Wohnungsreinigung', 'Regular Apartment Cleaning'), 
       desc: t('Regelmässige Reinigung für Ihr Wohlbefinden zu Hause.', 'Regular cleaning for your well-being at home.'), 
       image: '/service/home.jpeg',
       features: [
-        t('Bodenreinigung', 'Floor Cleaning'),
-        t('Küchenreinigung', 'Kitchen Regular Cleaning'),
-        t('Badezimmerreinigung', 'Bathroom Regular Cleaning'),
-        t('Staubwischen', 'Dusting')
+        t('Bodenreinigung', 'Floor cleaning'),
+        t('Küchenreinigung', 'Kitchen cleaning'),
+        t('Badezimmerreinigung', 'Bathroom cleaning'),
+        t('Staubwischen', 'Wipe the dust')
       ]
     },
+    
     { 
       icon: 'window', 
       title: t('Fensterreinigung', 'Window Cleaning'), 
@@ -124,7 +136,7 @@ const Services = () => {
       icon: 'inventory', 
       title: t('Kellerräumung', 'Basement Clearance'), 
       image: '/service/basement.jpeg',
-      desc: t('Wir schaffen Platz in Ihrem Keller. Zuverlässige Räumung und Entsorgung.', 'We make room in your basement. Reliable clearing and disposal.')
+      desc: t('Wir schafffen Platz in Ihrem Keller. Zuverlässige Räumung und Entsorgung.', 'We make room in your basement. Reliable clearing and disposal.')
     },
     { 
       icon: 'architecture', 
@@ -135,7 +147,7 @@ const Services = () => {
     { 
       icon: 'garage', 
       title: t('Garagenräumung', 'Garage Clearance'), 
-      image: '/service/gargage.jpeg',
+      image: '/service/garage.jpeg',
       desc: t('Komplette Leerung und Reinigung Ihrer Garage für neue Projekte.', 'Complete clearing and cleaning of your garage for new projects.')
     },
   ];
@@ -154,7 +166,7 @@ const Services = () => {
         </div>
 
         {/* Main Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mb-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 max-w-6xl mx-auto">
           {mainServices.map((service, idx) => (
             <ServiceCard key={idx} service={service} t={t} />
           ))}
@@ -191,7 +203,13 @@ const Services = () => {
                         {service.desc}
                     </p>
 
-                   
+                    {/* Book Now for Clearances (Bottom Right of content on md, or bottom right of card on mobile) */}
+                    <div className="absolute bottom-6 left-8 md:static mt-8">
+                        <Link to="/contact" className="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 shadow-lg shadow-primary/20 flex items-center gap-2 group/btn">
+                            {t('JETZT BUCHEN', 'BOOK NOW')}
+                            <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward_ios</span>
+                        </Link>
+                    </div>
                 </div>
               </div>
             ))}

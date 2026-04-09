@@ -70,7 +70,7 @@ const Navbar = () => {
                 <img 
                    src="/Logo.png" 
                    alt="Logo" 
-                   className="h-20 w-auto brightness-0 invert" 
+                   className="h-40 w-auto brightness-0 invert" 
                 />
               </div>
             </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
              
              <div className="h-full flex flex-col items-center justify-center p-8 space-y-2">
                 {/* Logo at the Top */}
-                <img src="/Logo.png" alt="Logo" className="h-20 w-auto brightness-0 invert mb-6" />
+                <img src="/Logo.png" alt="Logo" className="h-40 w-auto brightness-0 invert mb-6" />
 
                 {/* Integration of Language Toggle BETWEEN Logo and Menu Links */}
                 <div className="flex items-center gap-6 mb-10 border border-white/10 rounded-full px-5 py-2 hover:border-white/30 transition-all">

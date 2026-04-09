@@ -21,8 +21,15 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative min-h-[750px] lg:min-h-screen flex flex-col items-center lg:justify-center pt-32 lg:pt-42 pb-12 overflow-hidden bg-[#0a192f]">
+    <section className="relative min-h-[750px] lg:min-h-screen flex flex-col items-center lg:justify-center pt-52 lg:pt-42 pb-12 overflow-hidden bg-[#0a192f]">
       {/* Background with subtle gradient matching references */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a1b33] via-[#0c2447] to-[#0a192f] -z-20"></div>
       
@@ -38,18 +45,21 @@ const Hero = () => {
                 {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
             </span>
 
-            <h2 className="font-headline text-[40px] font-black mb-8 leading-[1.1] tracking-tighter">
-                <span className="text-white block">{t('Swiss Precision', 'Swiss Precision')}</span>
+            <h2 className="font-headline text-[40px] font-black mb-8 leading-[1.1] tracking-tighter text-white">
+                <span className="block">{t('Swiss Precision', 'Swiss Precision')}</span>
                 <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
             </h2>
             <p className="text-white/60 text-lg mb-12 leading-relaxed font-medium max-w-sm mx-auto">
                 {t('Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
             </p>
             <div className="w-full flex flex-col gap-4 max-w-sm">
-                <Link to="/contact" className="w-full bg-[#0062ff] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white hover:text-[#0062ff] transition-all shadow-2xl shadow-[#0062ff]/20 active:scale-95">
+                <button 
+                  onClick={scrollToServices}
+                  className="w-full bg-[#0062ff] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white hover:text-[#0062ff] transition-all shadow-2xl shadow-[#0062ff]/20 active:scale-95"
+                >
                     {t('Book Now', 'Book Now')}
-                </Link>
-                <Link to="/pricing" className="w-full bg-white/5 backdrop-blur-md text-white border border-white/20 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95">
+                </button>
+                <Link to="/pricing" className="w-full bg-white/5 backdrop-blur-md text-white border border-white/20 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95 text-center">
                     {t('Get a Quote', 'Get a Quote')}
                 </Link>
             </div>
@@ -63,8 +73,8 @@ const Hero = () => {
                     {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
                 </span>
                 
-                <h2 className="font-headline text-7xl xl:text-8xl font-black mb-10 leading-[1.05] tracking-tighter">
-                    <span className="text-white block">{t('Swiss Precision', 'Swiss Precision')}</span>
+                <h2 className="font-headline text-7xl xl:text-8xl font-black mb-10 leading-[1.05] tracking-tighter text-white">
+                    <span className="block">{t('Swiss Precision', 'Swiss Precision')}</span>
                     <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
                 </h2>
                 
@@ -73,10 +83,13 @@ const Hero = () => {
                 </p>
                 
                 <div className="flex items-center gap-6">
-                    <Link to="/contact" className="bg-[#0062ff] text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-2xl shadow-[#0062ff]/20">
+                    <button 
+                      onClick={scrollToServices}
+                      className="bg-[#0062ff] text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-2xl shadow-[#0062ff]/20"
+                    >
                         {t('Book Now', 'Book Now')}
-                    </Link>
-                    <Link to="/pricing" className="px-12 py-5 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all">
+                    </button>
+                    <Link to="/pricing" className="px-12 py-5 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all text-center">
                         {t('Get a Quote', 'Get a Quote')}
                     </Link>
                 </div>

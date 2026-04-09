@@ -21,7 +21,7 @@ const Navbar = () => {
     <>
       {/* desktop navbar - Transparent/Dark Theme */}
       <header className="hidden lg:block absolute top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-        <div className="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-1 h-24 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
              <img src="/Logo.png" alt="Logo" className="h-14 w-auto brightness-0 invert" />
           </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
              
              <div className="h-full flex flex-col items-center justify-center p-8 space-y-2">
                 {/* Logo at the Top */}
-                <img src="/Logo.png" alt="Logo" className="h-24 w-auto brightness-0 invert mb-6" />
+                <img src="/Logo.png" alt="Logo" className="h-20 w-auto brightness-0 invert mb-6" />
 
                 {/* Integration of Language Toggle BETWEEN Logo and Menu Links */}
                 <div className="flex items-center gap-6 mb-10 border border-white/10 rounded-full px-5 py-2 hover:border-white/30 transition-all">

@@ -22,7 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 lg:pt-42 pb-12 overflow-hidden bg-[#0a192f]">
+    <section className="relative min-h-[750px] lg:min-h-screen flex flex-col items-center lg:justify-center pt-32 lg:pt-42 pb-12 overflow-hidden bg-[#0a192f]">
       {/* Background with subtle gradient matching references */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a1b33] via-[#0c2447] to-[#0a192f] -z-20"></div>
       

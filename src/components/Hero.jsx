@@ -57,7 +57,8 @@ const Hero = () => {
                   onClick={scrollToServices}
                   className="w-full bg-[#0062ff] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white hover:text-[#0062ff] transition-all shadow-2xl shadow-[#0062ff]/20 active:scale-95"
                 >
-                    {t('Book Now', 'Book Now')}
+                    {t('Unser Service', 'Our Service')}
+
                 </button>
                 <Link to="/pricing" className="w-full bg-white/5 backdrop-blur-md text-white border border-white/20 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95 text-center">
                     {t('Get a Quote', 'Get a Quote')}
@@ -87,7 +88,7 @@ const Hero = () => {
                       onClick={scrollToServices}
                       className="bg-[#0062ff] text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 shadow-2xl shadow-[#0062ff]/20"
                     >
-                        {t('Book Now', 'Book Now')}
+                    {t('Unser Service', 'Our Service')}
                     </button>
                     <Link to="/pricing" className="px-12 py-5 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all text-center">
                         {t('Get a Quote', 'Get a Quote')}

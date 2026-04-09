@@ -62,8 +62,10 @@ const Services = () => {
    { 
       icon: 'task_alt', 
       title: t('Endreinigung ', 'Final Cleaning '), 
-      desc: t('Professionelle Endreinigung mit Abnahmegarantie nach Schweizer Standards.', 'Professional final cleaning with handover guarantee according to Swiss standards.'), 
-      image: '/service/moveout.jpeg',
+desc: t(
+  'Wir bieten professionelle Endreinigung für Wohnungsabgaben, damit Ihre Immobilie makellos und bereit zur Übergabe ist. Unser Service umfasst die gründliche Reinigung aller Räume, Küche, Badezimmer, Fenster, Böden sowie die vollständige Staubentfernung.\n\nWir verwenden professionelle Geräte und umweltfreundliche Produkte nach Schweizer Standards, damit Sie Ihre Kaution stressfrei und pünktlich zurückerhalten.',
+  'We provide professional end of tenancy cleaning to make your property spotless and ready for handover. Our service covers deep cleaning of all rooms, kitchen, bathroom, windows, floors, and complete dust removal.\n\nWe use professional equipment and eco-friendly products to meet Swiss standards and help you secure your full deposit—stress-free and on time.'
+),      image: '/service/moveout.jpeg',
       features: [
         t('Tiefenreinigung aller Räume', 'Deep cleaning of all rooms'),
         t('Küchen- & Bad-Spezialreinigung', 'Kitchen & Bathroom Special Cleaning'),

@@ -68,7 +68,7 @@ const ContactPage = () => {
                 </div>
             </div>
             
-            <div className="flex-1 py-12 md:py-24 bg-slate-50">
+            <div className="flex-1  bg-slate-50">
                 <Contact />
             </div>
        </div>

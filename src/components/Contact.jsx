@@ -12,13 +12,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden" id="kontakt">
+    <section className="py-16 md:py-24 px-4 md:px-8 bg-sky-50 relative overflow-hidden" id="kontakt">
       {/* Decorative Accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
       
-      <div className="max-w-6xl mx-auto bg-white rounded-[40px] overflow-hidden shadow-[0_30px_100px_rgba(10,25,47,0.08)] border border-slate-100 flex flex-col md:flex-row relative z-10">
+      <div className="max-w-6xl mx-auto bg-white rounded-[40px] overflow-hidden shadow-[0_30px_100px_rgba(10,25,47,0.12)] border border-slate-100 flex flex-col md:flex-row relative z-10">
  {/* Contact Form Side */}
-        <div className="p-10 md:p-16 md:w-3/5 bg-white">
+        <div className="p-10 md:p-16 md:w-3/5 bg-white md:border-r border-slate-100">
           {submitted ? (
             <div className="h-full flex flex-col items-center justify-center text-center animate-fade-in py-12">
                <div className="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mb-8 shadow-inner">
@@ -37,29 +37,29 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{t('Name', 'Name')}</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Name', 'Name')}</label>
                   <input
                     required
-                    className="w-full bg-slate-50 px-6 py-4 rounded-2xl border-none ring-1 ring-slate-100 focus:ring-2 focus:ring-primary transition-all outline-none font-medium placeholder:text-slate-300"
+                    className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300"
                     placeholder={t('Ihr Vorname', 'Your Name')}
                     type="text"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{t('Email', 'Email')}</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Email', 'Email')}</label>
                   <input
                     required
-                    className="w-full bg-slate-50 px-6 py-4 rounded-2xl border-none ring-1 ring-slate-100 focus:ring-2 focus:ring-primary transition-all outline-none font-medium placeholder:text-slate-300"
+                    className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300"
                     placeholder={t('ihre@mail.ch', 'your@mail.ch')}
                     type="email"
                   />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">{t('Nachricht', 'Message')}</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Nachricht', 'Message')}</label>
                 <textarea
                   required
-                  className="w-full bg-slate-50 px-6 py-4 rounded-2xl border-none ring-1 ring-slate-100 focus:ring-2 focus:ring-primary transition-all outline-none font-medium placeholder:text-slate-300 min-h-[160px] resize-none"
+                  className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300 min-h-[160px] resize-none"
                   placeholder={t('Wie können wir Ihnen helfen?', 'How can we help you?')}
                   rows="5"
                 ></textarea>

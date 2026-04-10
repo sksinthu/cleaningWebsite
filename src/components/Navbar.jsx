@@ -15,6 +15,14 @@ const Navbar = () => {
     { name: t('Warum wir?', 'Why Us?'), path: '/whyus' },
   ];
 
+  const handleNavClick = (path, e) => {
+    const isActive = (p) => location.pathname === p;
+    if (isActive(path)) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -22,7 +30,7 @@ const Navbar = () => {
       {/* desktop navbar - Transparent/Dark Theme */}
       <header className="hidden lg:block absolute top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
         <div className="max-w-7xl mx-auto px-1 h-24 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" onClick={(e) => handleNavClick('/', e)} className="flex items-center gap-3">
              <img src="/Logo.png" alt="Logo" className="h-14 w-auto brightness-0 invert" />
           </Link>
 
@@ -31,6 +39,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={(e) => handleNavClick(item.path, e)}
                 className={`text-sm font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
                   isActive(item.path) ? 'text-green-400 font-black' : 'text-white'
                 }`}
@@ -65,7 +74,7 @@ const Navbar = () => {
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0a192f] to-transparent -z-10 opacity-60"></div>
             
             {/* Logo Area (Centered) */}
-            <Link to="/" className="flex flex-col items-center text-center">
+            <Link to="/" onClick={(e) => handleNavClick('/', e)} className="flex flex-col items-center text-center">
               <div className="relative mb-2">
                 <img 
                    src="/Logo.png" 
@@ -114,8 +123,11 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`w-full text-center text-2xl font-black uppercase tracking-[0.2em] transition-all py-3 ${
+                      onClick={(e) => {
+                        setIsMobileMenuOpen(false);
+                        handleNavClick(item.path, e);
+                      }}
+                      className={`w-full text-center text-2xl font-black uppercase tracking-[0.2em] transition-all py-2 ${
                         isActive(item.path) ? 'text-green-400' : 'text-white'
                       }`}
                     >

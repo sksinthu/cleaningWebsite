@@ -14,6 +14,14 @@ const BottomNav = () => {
     { id: 'services', path: '/whyus', icon: 'home_work', label: t('Warum wir', 'Why Us') },
   ];
 
+  const handleNavClick = (path, e) => {
+    const isActive = (p) => location.pathname === p;
+    if (isActive(path)) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -24,6 +32,7 @@ const BottomNav = () => {
           <Link
             key={item.id}
             to={item.path}
+            onClick={(e) => handleNavClick(item.path, e)}
             className={`flex flex-col items-center justify-center w-14 sm:w-16 gap-1 transition-all duration-300 ${
               active ? 'text-primary scale-110 translate-y-[-4px]' : 'text-slate-400'
             }`}

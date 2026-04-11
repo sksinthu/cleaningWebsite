@@ -21,18 +21,18 @@ const ServiceArea = () => {
             <div className="space-y-10">
                 <div className="inline-flex items-center gap-2 px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-black uppercase tracking-widest text-[#0062ff]">
                     <span className="material-symbols-outlined text-[14px]">map</span>
-                    {t('LOCAL & REGIONAL', 'LOCAL & REGIONAL')}
+                    {t('LOKAL & REGIONAL', 'LOCAL & REGIONAL')}
                 </div>
 
                 <div>
                   <h2 className="font-headline text-5xl md:text-7xl font-black mb-10 tracking-tighter uppercase leading-[0.9]">
-                    <span className="text-[#0062ff] block">{t('OUR', 'OUR')}</span>
+                    <span className="text-[#0062ff] block">{t('UNSER', 'OUR')}</span>
                     <span className="text-[#0a3622] block decoration-[#2eb872] underline decoration-8 underline-offset-8">
-                      {t('SERVICE AREA', 'SERVICE AREA')}
+                      {t('EINZUGSGEBIET', 'SERVICE AREA')}
                     </span>
                   </h2>
                   <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-                    {t('We operate throughout Western Switzerland and the Mittelland. Punctuality, reliability, and local presence are our hallmarks.', 'We operate throughout Western Switzerland and the Mittelland. Punctuality, reliability, and local presence are our hallmarks.')}
+                    {t('Wir sind in der gesamten Westschweiz und im Mittelland tätig. Pünktlichkeit, Zuverlässigkeit und lokale Präsenz sind unsere Markenzeichen.', 'We operate throughout Western Switzerland and the Mittelland. Punctuality, reliability, and local presence are our hallmarks.')}
                   </p>
                 </div>
             </div>

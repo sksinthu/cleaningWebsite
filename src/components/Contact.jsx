@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLanguage } from '../LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useLanguage();
+  const form = useRef();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Simulation of success for UI purposes
+    setLoading(true);
+    setError(null);
+
+    // YOU MUST CONFIGURE THESE THREE VALUES IN YOUR EMAILJS DASHBOARD
+    const serviceID = 'service_usc792q';
+    const templateID = 'template_77khsib';
+    const publicKey = 'OAr31sCBtPhOOvY1Z';
+
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
+      .then((result) => {
+          console.log(result.text);
+          setSubmitted(true);
+          setLoading(false);
+      }, (error) => {
+          console.log(error.text);
+          setError(t('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.', 'An error occurred. Please try again later.'));
+          setLoading(false);
+      });
   };
 
   return (
@@ -34,12 +54,13 @@ const Contact = () => {
                </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Name', 'Name')}</label>
                   <input
                     required
+                    name="name"
                     className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300"
                     placeholder={t('Ihr Vorname', 'Your Name')}
                     type="text"
@@ -49,6 +70,7 @@ const Contact = () => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Email', 'Email')}</label>
                   <input
                     required
+                    name="user_email"
                     className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300"
                     placeholder={t('ihre@mail.ch', 'your@mail.ch')}
                     type="email"
@@ -59,6 +81,7 @@ const Contact = () => {
                 <label className="text-[10px] font-black uppercase tracking-widest text-secondary ml-1">{t('Nachricht', 'Message')}</label>
                 <textarea
                   required
+                  name="message"
                   className="w-full bg-white px-6 py-4 rounded-2xl border border-slate-200 ring-0 focus:ring-1 focus:ring-secondary transition-all outline-none font-medium placeholder:text-slate-300 min-h-[160px] resize-none"
                   placeholder={t('Wie können wir Ihnen helfen?', 'How can we help you?')}
                   rows="5"
@@ -66,12 +89,20 @@ const Contact = () => {
               </div>
 
               <button
-                className="w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] bg-secondary text-white shadow-2xl transition-all active:scale-95 hover:shadow-secondary/20 hover:-translate-y-1 flex items-center justify-center gap-4"
+                disabled={loading}
+                className={`w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] bg-secondary text-white shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-4 ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-secondary/20 hover:-translate-y-1'}`}
                 type="submit"
               >
-                {t('Senden', 'Send Message')}
-                <span className="material-symbols-outlined text-[16px]">send</span>
+                {loading ? t('Wird gesendet...', 'Sending...') : t('Senden', 'Send Message')}
+                <span className={`material-symbols-outlined text-[16px] ${loading ? 'animate-spin' : ''}`}>
+                  {loading ? 'refresh' : 'send'}
+                </span>
               </button>
+              {error && (
+                <p className="text-red-500 text-xs font-bold text-center mt-4 bg-red-50 py-2 rounded-xl animate-shake">
+                  {error}
+                </p>
+              )}
             </form>
           )}
         </div>

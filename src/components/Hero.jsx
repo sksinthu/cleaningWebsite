@@ -42,15 +42,15 @@ const Hero = () => {
         <div className="lg:hidden text-center flex flex-col items-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[9px] font-black uppercase tracking-[0.2em] text-white/70 mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2eb872]"></span>
-                {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
+                {t('PREMIUM-REINIGUNG SCHWEIZ', 'PREMIUM CLEANING SWITZERLAND')}
             </span>
 
             <h2 className="font-headline text-[40px] font-black mb-8 leading-[1.1] tracking-tighter text-white">
-                <span className="block">{t('Swiss Precision', 'Swiss Precision')}</span>
-                <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
+                <span className="block">{t('Schweizer Präzision', 'Swiss Precision')}</span>
+                <span className="text-[#2eb872] block">{t('bei jeder Reinigung', 'in Every Cleaning')}</span>
             </h2>
             <p className="text-white/60 text-lg mb-12 leading-relaxed font-medium max-w-sm mx-auto">
-                {t('Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
+                {t('Vertrauen, Zuverlässigkeit und erstklassiger Service. Wir sorgen für strahlende Sauberkeit in Ihrem Zuhause oder Büro – schnell und umweltfreundlich.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
             </p>
             <div className="w-full flex flex-col gap-4 max-w-sm">
                 <button 
@@ -61,7 +61,7 @@ const Hero = () => {
 
                 </button>
                 <Link to="/pricing" className="w-full bg-white/5 backdrop-blur-md text-white border border-white/20 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95 text-center">
-                    {t('Get a Quote', 'Get a Quote')}
+                    {t('Offerte einholen', 'Get a Quote')}
                 </Link>
             </div>
         </div>
@@ -71,16 +71,16 @@ const Hero = () => {
             <div className="text-left">
                 <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white/70 mb-8">
                     <span className="w-2 h-2 rounded-full bg-[#2eb872]"></span>
-                    {t('PREMIUM CLEANING SWITZERLAND', 'PREMIUM CLEANING SWITZERLAND')}
+                    {t('PREMIUM-REINIGUNG SCHWEIZ', 'PREMIUM CLEANING SWITZERLAND')}
                 </span>
                 
                 <h2 className="font-headline text-7xl xl:text-8xl font-black mb-10 leading-[1.05] tracking-tighter text-white">
-                    <span className="block">{t('Swiss Precision', 'Swiss Precision')}</span>
-                    <span className="text-[#2eb872] block">{t('in Every Cleaning', 'in Every Cleaning')}</span>
+                    <span className="block">{t('Schweizer Präzision', 'Swiss Precision')}</span>
+                    <span className="text-[#2eb872] block">{t('bei jeder Reinigung', 'in Every Cleaning')}</span>
                 </h2>
                 
                 <p className="text-white/60 text-xl mb-12 leading-relaxed font-medium max-w-lg">
-                    {t('Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
+                    {t('Vertrauen, Zuverlässigkeit und erstklassiger Service. Wir sorgen für strahlende Sauberkeit in Ihrem Zuhause oder Büro – schnell und umweltfreundlich.', 'Trust, reliability, and first-class service. We ensure radiant cleanliness in your home or office – fast and eco-friendly.')}
                 </p>
                 
                 <div className="flex items-center gap-6">
@@ -91,7 +91,7 @@ const Hero = () => {
                     {t('Unser Service', 'Our Service')}
                     </button>
                     <Link to="/pricing" className="px-12 py-5 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all text-center">
-                        {t('Get a Quote', 'Get a Quote')}
+                        {t('Offerte einholen', 'Get a Quote')}
                     </Link>
                 </div>
             </div>

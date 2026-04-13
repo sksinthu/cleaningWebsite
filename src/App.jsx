@@ -21,6 +21,20 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Dynamic SEO Guard: Noindex all subpages, only index home
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.name = 'robots';
+      document.head.appendChild(robotsMeta);
+    }
+
+    if (pathname === '/') {
+      robotsMeta.setAttribute('content', 'index, follow');
+    } else {
+      robotsMeta.setAttribute('content', 'noindex, nofollow');
+    }
   }, [pathname]);
   return null;
 };

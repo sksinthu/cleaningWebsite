@@ -5,13 +5,13 @@ const Gallery = () => {
   const { t } = useLanguage();
 
   const images = [
-    { src: '/gallery/1000167245.jpg', alt: 'Cleaning Service 2' },
-    { src: '/gallery/1000167239.jpg', alt: 'Cleaning Service 1' },
-    { src: '/gallery/1000167249.png', alt: 'Cleaning Service 3' },
-    { src: '/gallery/1000167253.png', alt: 'Cleaning Service 4' },
-    { src: '/gallery/1000167255.png', alt: 'Cleaning Service 5' },
-    { src: '/gallery/1000167257.png', alt: 'Cleaning Service 6' },
-    { src: '/gallery/1000170336.jpg', alt: 'Cleaning Service 7' },
+    { src: '/gallery/1000167245.jpg', alt: 'PK Top Clean - Professionelle Büroreinigung in Bern' },
+    { src: '/gallery/1000167239.jpg', alt: 'PK Top Clean - Wohnungsreinigung mit Abgabegarantie' },
+    { src: '/gallery/1000167249.png', alt: 'Professioneller Reinigungsservice - Glas und Fensterreinigung' },
+    { src: '/gallery/1000167253.png', alt: 'Moderne Reinigungsausrüstung - PK Top Clean Standards' },
+    { src: '/gallery/1000167255.png', alt: 'PK Top Clean - Detailgenaue Reinigung von Wohnräumen' },
+    { src: '/gallery/1000167257.png', alt: 'Fachmännische Teppich und Bodenreinigung Schweiz' },
+    { src: '/gallery/1000170336.jpg', alt: 'PK Top Clean - Zufriedene Kunden nach der Endreinigung' },
 
   ];
 

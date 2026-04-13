@@ -8,12 +8,12 @@ const Terms = () => {
         {
             icon: 'assignment',
             title: t('1. Geltungsbereich', '1. Scope'),
-            content: t('Für die Geschäftsbeziehung zwischen SwissClean und dem Kunden gelten ausschließlich die nachfolgenden Allgemeinen Geschäftsbedingungen in ihrer zum Zeitpunkt der Bestellung gültigen Fassung.', 'For the business relationship between SwissClean and the customer, the following General Terms and Conditions apply exclusively in the version valid at the time of the order.')
+            content: t('Für die Geschäftsbeziehung zwischen PK Top Clean und dem Kunden gelten ausschließlich die nachfolgenden Allgemeinen Geschäftsbedingungen in ihrer zum Zeitpunkt der Bestellung gültigen Fassung.', 'For the business relationship between PK Top Clean and the customer, the following General Terms and Conditions apply exclusively in the version valid at the time of the order.')
         },
         {
             icon: 'handyman',
             title: t('2. Leistungen', '2. Services'),
-            content: t('SwissClean erbringt Dienstleistungen im Bereich der Gebäude- und Spezialreinigung. Der genaue Umfang der Leistungen ergibt sich aus dem jeweiligen Angebot oder der Auftragsbestätigung.', 'SwissClean provides services in the field of building and special cleaning. The exact scope of the services results from the respective offer or order confirmation.')
+            content: t('PK Top Clean erbringt Dienstleistungen im Bereich der Gebäude- und Spezialreinigung. Der genaue Umfang der Leistungen ergibt sich aus dem jeweiligen Angebot oder der Auftragsbestätigung.', 'PK Top Clean provides services in the field of building and special cleaning. The exact scope of the services results from the respective offer or order confirmation.')
         },
         {
             icon: 'payments',
@@ -23,7 +23,7 @@ const Terms = () => {
         {
             icon: 'verified',
             title: t('4. Haftung', '4. Liability'),
-            content: t('SwissClean haftet für Schäden, die nachweislich durch ihre Mitarbeiter bei der Ausführung der Reinigungsarbeiten verursacht wurden. Eine Haftung für Mangelfolgeschäden ist ausgeschlossen.', 'SwissClean is liable for damages demonstrably caused by its employees during the execution of cleaning work. Liability for consequential damages is excluded.')
+            content: t('PK Top Clean haftet für Schäden, die nachweislich durch ihre Mitarbeiter bei der Ausführung der Reinigungsarbeiten verursacht wurden. Eine Haftung für Mangelfolgeschäden ist ausgeschlossen.', 'PK Top Clean is liable for damages demonstrably caused by its employees during the execution of cleaning work. Liability for consequential damages is excluded.')
         },
         {
             icon: 'apartment',

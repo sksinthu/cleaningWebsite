@@ -13,7 +13,7 @@ const Testimonials = () => {
     {
       name: "Thomas W.",
       role: t("Büroreinigung", "Office Cleaning"),
-      text: t("Seit SwissClean unsere Büros reinigt, ist die Mitarbeiterzufriedenheit gestiegen. Sehr diskret und zuverlässig. Kann ich nur wärmstens empfehlen.", "Since SwissClean started cleaning our offices, employee satisfaction has increased. Very discreet and reliable. I can highly recommend them.")
+      text: t("Seit PK Top Clean unsere Büros reinigt, ist die Mitarbeiterzufriedenheit gestiegen. Sehr diskret und zuverlässig. Kann ich nur wärmstens empfehlen.", "Since PK Top Clean started cleaning our offices, employee satisfaction has increased. Very discreet and reliable. I can highly recommend them.")
     },
     {
       name: "Elena K.",

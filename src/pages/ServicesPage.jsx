@@ -21,7 +21,7 @@ const ServicesPage = () => {
               <span className="text-secondary-fixed decoration-secondary underline decoration-8 underline-offset-8">{t('SIE VERTRAUEN', 'YOU CAN TRUST')}</span>
             </h1>
             <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-              {t('Erfahren Sie, warum SwissClean die erste Wahl für anspruchsvolle Kunden in der ganzen Schweiz ist. Wir setzen auf höchste Standards, Zuverlässigkeit und ein Expertenteam, das jeden Auftrag mit Präzision ausführt.', 'Learn why SwissClean is the first choice for demanding customers across Switzerland. We focus on the highest standards, reliability, and an expert team that executes every job with precision.')}
+              {t('Erfahren Sie, warum PK Top Clean die erste Wahl für anspruchsvolle Kunden in der ganzen Schweiz ist. Wir setzen auf höchste Standards, Zuverlässigkeit und ein Expertenteam, das jeden Auftrag mit Präzision ausführt.', 'Learn why PK Top Clean is the first choice for demanding customers across Switzerland. We focus on the highest standards, reliability, and an expert team that executes every job with precision.')}
             </p>
           </div>
 

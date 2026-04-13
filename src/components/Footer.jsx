@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="space-y-6">
           <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-            <img src="/Logo2.png" alt="SwissClean" className="h-20 w-auto object-contain" />
+            <img src="/Logo2.png" alt="PK Top Clean" className="h-20 w-auto object-contain" />
           </Link>
           <p className="text-slate-500 font-medium text-sm leading-relaxed">
             {t('Ihr Partner für professionelle Sauberkeit und Werterhalt in der gesamten Schweiz.', 'Your partner for professional cleanliness and value retention throughout Switzerland.')}
@@ -70,9 +70,9 @@ const Footer = () => {
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.02 1.4-.43 2.82-1.32 3.91-.95 1.25-2.45 2.01-4 2.15-1.54.14-3.15-.17-4.48-1.01-1.35-.85-2.31-2.28-2.61-3.83-.43-2.07.28-4.32 1.83-5.71 1.4-1.27 3.39-1.74 5.25-1.31v4.21c-.81-.24-1.72-.11-2.42.34-.73.45-1.16 1.34-1.16 2.19 0 1.25 1.05 2.3 2.35 2.3 1.21 0 2.23-.91 2.35-2.05.04-3.66.02-7.32.02-10.99 0-2.31 0-4.61.01-6.92Z"/>
               </svg>
-              {t('Folgen Sie uns', 'Follow Us')}
+              {t('Folgen Sie PK Top Clean', 'Follow PK Top Clean')}
             </a>
-            <p className="text-[10px] uppercase tracking-widest font-black text-slate-400">© 2024 SwissClean & Maintenance.</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] font-black text-slate-400">© 2024 PK Top Clean & Maintenance.</p>
           </div>
         </div>
       </div>
